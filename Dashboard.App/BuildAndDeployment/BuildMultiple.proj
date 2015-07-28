@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="StartBuild"	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- Properties -->
+	<PropertyGroup>
+    <TargetsToRun Condition="'$(TargetsToRun)' == ''">BuildAndCreatePackageAsZip</TargetsToRun>
+    <Major Condition="'$(Major)' == ''">1</Major>
+    <Minor Condition="'$(Minor)' == ''">0</Minor>
+    <Revision Condition="'$(Revision)' == ''">0</Revision>
+    <SourceDirectory Condition="'$(SourceDirectory)' == ''">c:\build\working\source</SourceDirectory>
+    <OutputDirectory Condition="'$(OutputDirectory)' == ''">c:\build\drops\output</OutputDirectory>
+    <BaseOutputDirectory Condition="'$(BaseOutputDirectory)' == ''">$(OutputDirectory)</BaseOutputDirectory>
+    <ProgramFilesDirectory Condition="'$(ProgramFilesDirectory)' == ''">C:\Program Files</ProgramFilesDirectory>
+	</PropertyGroup>
+
+  <!-- Third party imports -->
+  <!-- MSBuild Extension Pack -->
+  <Import Condition="Exists('$(SourceDirectory)\BuildAndDeployment\References\MSBuildExtensionPack\MSBuild.ExtensionPack.tasks')" Project="$(SourceDirectory)\BuildAndDeployment\References\MSBuildExtensionPack\MSBuild.ExtensionPack.tasks"/>
+  <!-- Slow Cheetah for config transforms -->
+  <Import Condition="Exists('$(SourceDirectory)\BuildAndDeployment\References\SlowCheetah\SlowCheetah.Transforms.targets')" Project="$(SourceDirectory)\BuildAndDeployment\References\SlowCheetah\SlowCheetah.Transforms.targets"/>
+  
+  <!-- Builds the projects for each configuration and creates a zip package to use for deploying to the higher environments -->
+  <Target Name="BuildAndCreatePackageAsZip" DependsOnTargets="BuildAndOrganiseFiles">
+   
+    <!-- zip it up -->
+    <MSBuild.ExtensionPack.Compression.Zip 
+      CompressPath="$(BaseOutputDirectory)"
+      RemoveRoot="$(BaseOutputDirectory)"
+      ZipFileName="$(BaseOutputDirectory)\MainProject_SubProject_Package_$(Major)_$(Minor)_$(Build)_$(Revision).zip" 
+      TaskAction="Create" />
+    
+  </Target>
+
+  <Target Name="BuildPPE" DependsOnTargets="CreateSettingsForPPEPackage">
+    <MSBuild Projects="Build.proj" Targets="BuildOnly" Properties="Configuration=$(Configuration);Minor=$(Minor);Build=$(Build);Revision=$(Revision);SourceDirectory=$(SourceDirectory);OutputDirectory=$(OutputDirectory);ProgramFilesDirectory=$(ProgramFilesDirectory);" />
+  </Target>
+  
+  <Target Name="BuildRelease" DependsOnTargets="CreateSettingsForReleasePackage">
+    <MSBuild Projects="Build.proj" Targets="BuildOnly" Properties="Configuration=$(Configuration);Minor=$(Minor);Build=$(Build);Revision=$(Revision);SourceDirectory=$(SourceDirectory);OutputDirectory=$(OutputDirectory);ProgramFilesDirectory=$(ProgramFilesDirectory);" />
+  </Target>
+
+  <Target Name="CreateSettingsForPPEPackage">
+    <PropertyGroup>
+      <Configuration>PreProd</Configuration>
+      <OutputDirectory>$(BaseOutputDirectory)\PPE</OutputDirectory>
+    </PropertyGroup>
+    <Message Text="Building package for Configuration '$(Configuration)' to output dir '$(OutputDirectory)'." />
+  </Target>
+
+  <Target Name="CreateSettingsForReleasePackage">
+    <PropertyGroup>
+      <Configuration>Release</Configuration>
+      <OutputDirectory>$(BaseOutputDirectory)\Build</OutputDirectory>
+    </PropertyGroup>
+    <Message Text="Building package for Configuration '$(Configuration)' to output dir '$(OutputDirectory)'." />
+  </Target>
+
+  <Target Name="ClearDropFolder">
+    <!-- check drop directory doesn't already exist - remove if does -->
+    <RemoveDir Directories="$(OutputDirectory)" ContinueOnError="true" />
+  </Target>
+
+  <!-- Starts the builds, then organises the configs into folders and uses the Release build for the code -->
+  <Target Name="BuildAndOrganiseFiles" DependsOnTargets="BuildPPE;BuildRelease">
+    
+    <!-- lists of transformed config files to move after the build-->
+    <ItemGroup>
+      <!-- website config files -->
+      <ConfigFiles Include="AppSettings.config" />
+      <ConfigFiles Include="connectionStrings.config" />
+      <ConfigFiles Include="Web.config" />
+      <ConfigFiles Include="App.config" />
+    </ItemGroup>
+    
+    <!-- Get the compiled release code into a folder-->
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(BaseOutputDirectory)\Build" Destination="$(BaseOutputDirectory)\Configs\Prod" Files="@(ConfigFiles)" Options="/MOV" />
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(BaseOutputDirectory)\PPE" Destination="$(BaseOutputDirectory)\Configs\PreProd" Files="@(ConfigFiles)" Options="/MOV" />
+
+    <!-- Remove the left over folders that contain only code - only keep the release build in the Build folder -->
+    <RemoveDir Directories="$(BaseOutputDirectory)\PPE" ContinueOnError="false" />
+    
+  </Target>
+  
+  <!-- actually executes everything -->
+  <Target Name="BuildAndCreatePackage" DependsOnTargets="ClearDropFolder;BuildAndCreatePackageAsZip" />
+  <Target Name="StartBuild" DependsOnTargets="$(TargetsToRun)" />
+
+</Project>

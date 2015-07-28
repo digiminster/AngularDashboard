@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="StartBuild"	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- Properties -->
+	<PropertyGroup>
+    <TargetsToRun Condition="'$(TargetsToRun)' == ''">BuildAndDeploy</TargetsToRun>
+    <DeploymentServerIisAppPoolStartUrl Condition="'$(DeploymentServerIisAppPoolStartUrl)' == ''">http://10.201.53.58:8081/IisControllerService.svc/StartApplicationPool/</DeploymentServerIisAppPoolStartUrl>
+    <DeploymentServerIisAppPoolStopUrl Condition="'$(DeploymentServerIisAppPoolStopUrl)' == ''">http://10.201.53.58:8081/IisControllerService.svc/StopApplicationPool/</DeploymentServerIisAppPoolStopUrl>
+    <AppPoolName Condition="'$(AppPoolName)' == ''">DevCI-CommentService</AppPoolName>
+	</PropertyGroup>
+
+  <!-- Third party imports -->
+  <!-- MSBuild Extension Pack -->
+  <Import Condition="Exists('$(SourceDirectory)\BuildAndDeployment\References\MSBuildExtensionPack\MSBuild.ExtensionPack.tasks')" Project="$(SourceDirectory)\BuildAndDeployment\References\MSBuildExtensionPack\MSBuild.ExtensionPack.tasks"/>
+	
+
+  <!-- STOPS AN APP POOL -->
+	<Target Name="StopIISAppPool">
+		<Message Text="Stopping IIS app pool '$(AppPoolName)' using service at '$(DeploymentServerIisAppPoolStopUrl)'..."
+             Importance="high" />
+		
+		<MSBuild.ExtensionPack.Web.HttpWebRequest TaskAction="GetResponse" 
+                                              Url="$(DeploymentServerIisAppPoolStopUrl)$(AppPoolName)">
+			<Output TaskParameter="Response" ItemName="ResponseDetail"/>
+		</MSBuild.ExtensionPack.Web.HttpWebRequest>
+		<MSBuild.ExtensionPack.Framework.TextString TaskAction="Compare" Comparison="Contains" 
+                                                String1="%(ResponseDetail.ResponseText)" String2="SUCCESS" 
+                                                IgnoreCase="true">
+			<Output PropertyName="StopSuccessful" TaskParameter="Result"/>
+		</MSBuild.ExtensionPack.Framework.TextString>
+		<MSBuild.ExtensionPack.Framework.TextString TaskAction="Compare" Comparison="Contains" 
+                                                String1="%(ResponseDetail.ResponseText)" String2="already stopped" 
+                                                IgnoreCase="true">
+			<Output PropertyName="StopWarning" TaskParameter="Result"/>
+		</MSBuild.ExtensionPack.Framework.TextString>
+		<Error Text="The IIS App pool '$(AppPoolName)' was not stopped. The response was: %(ResponseDetail.ResponseText)"
+						Condition="!$(StopSuccessful)" />
+		<Warning Text="The IIS App pool '$(AppPoolName)' was not successfully stopped. The response was: %(ResponseDetail.ResponseText)"
+						Condition="$(StopWarning)" />
+		<Message Text="The IIS App pool '$(AppPoolName)' was successfully stopped. The response was: %(ResponseDetail.ResponseText)"
+						Condition="$(StopSuccessful) And !$(StopWarning)" />
+	</Target>
+
+
+  <!-- STARTS AN APP POOL -->
+	<Target Name="StartIISAppPool">
+    <Message Text="Starting IIS app pool '$(AppPoolName)' using service at '$(DeploymentServerIisAppPoolStartUrl)'..."
+             Importance="high" />
+		
+		<MSBuild.ExtensionPack.Web.HttpWebRequest TaskAction="GetResponse" 
+                                              Url="$(DeploymentServerIisAppPoolStartUrl)$(AppPoolName)">
+			<Output TaskParameter="Response" ItemName="StartResponseDetail"/>
+		</MSBuild.ExtensionPack.Web.HttpWebRequest>
+		<MSBuild.ExtensionPack.Framework.TextString TaskAction="Compare" Comparison="Contains" 
+                                                String1="%(StartResponseDetail.ResponseText)" String2="SUCCESS" 
+                                                IgnoreCase="true">
+			<Output PropertyName="StartSuccessful" TaskParameter="Result"/>
+		</MSBuild.ExtensionPack.Framework.TextString>
+		<Error Text="The IIS App pool '$(AppPoolName)' was not started. The response was: %(StartResponseDetail.ResponseText)"
+						Condition="!$(StartSuccessful)" />
+		<Message Text="The IIS App pool '$(AppPoolName)' was successfully started. The response was: %(StartResponseDetail.ResponseText)"
+						Condition="$(StartSuccessful)" />
+	</Target>
+
+  <!-- actually executes everything -->
+  <Target Name="StartBuild" DependsOnTargets="$(TargetsToRun)" />
+
+</Project>

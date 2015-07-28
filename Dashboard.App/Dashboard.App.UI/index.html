@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+        Dashboard
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/jquery.mobile-1.4.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/addtohomescreen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+    <!-- JS third-party libraries -->
+    <script src="/assets/js/lib/addtohomescreen.min.js"></script>
+    <script src="/assets/js/lib/modernizr-2.6.2.min.js"></script>
+    <script src="/assets/js/lib/additional-validation-methods.js"></script>
+    <script src="/assets/js/lib/fastclick.js"></script>
+    <script src="/assets/js/lib/xdate.js"></script>
+
+    <!-- JS application code -->
+    <script src="/assets/js/src/config.js"></script>
+    <script src="/assets/js/src/logger.js"></script>
+    <script src="/assets/js/src/data-manager.js"></script>
+    <script src="/assets/js/src/template-manager.js"></script>
+    <script src="/assets/js/src/main.js"></script>
+    
+    <!-- AngularJS -->
+    <script src="/assets/Scripts/angular.min.js"></script>
+
+</head>
+<body>
+
+    <!-- START main page -->
+    <div id="page" class="container" data-role="page" data-add-back-btn="false" data-dom-cache="false">
+
+        <!-- Header -->
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" class="page-header">
+            <h1>Dashboard</h1>
+        </div>
+
+        <!-- Main content -->
+        <div ng-app ="" data-role="content">
+            <p>Name : <input type="text" ng-model="name"></p>
+            <h1>Hello {{name}}</h1>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <div class="inner">
+                <small>&beta; v1.0</small>
+                <span class="credit">Created by UK Parliament's <a href="http://www.digiminster.com/">Rapid Apps team</a></span>
+            </div>
+        </div>
+
+    </div>
+    <!-- END main page -->
+
+</body>
+</html>

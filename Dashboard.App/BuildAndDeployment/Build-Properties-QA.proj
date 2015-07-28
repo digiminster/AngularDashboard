@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
+    <PropertyGroup>
+      <DeploymentServerDirectory Condition="'$(DeploymentServerDirectory)' == ''">\\10.201.53.57\QA\MainProject\SubProject\Web</DeploymentServerDirectory>
+      <DeploymentServerIisAppPoolStartUrl>http://10.201.53.57:8081/IisControllerService.svc/StartApplicationPool/</DeploymentServerIisAppPoolStartUrl>
+      <DeploymentServerIisAppPoolStopUrl>http://10.201.53.57:8081/IisControllerService.svc/StopApplicationPool/</DeploymentServerIisAppPoolStopUrl>
+      <WebAppPoolName>QA_MainProjectSubProject</WebAppPoolName>
+      <AzureUsername></AzureUsername>
+      <AzurePassword></AzurePassword>
+      <AzureFtpHost>waws-prod-db3-005.ftp.azurewebsites.windows.net</AzureFtpHost>
+    </PropertyGroup>
+</Project>
