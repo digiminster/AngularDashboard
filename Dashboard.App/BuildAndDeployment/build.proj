@@ -18,8 +18,8 @@
 
     <ProgramFilesDirectory Condition="'$(ProgramFilesDirectory)' == ''">C:\Program Files</ProgramFilesDirectory>
     <SlowCheetahTargets>$(SourceDirectory)\BuildAndDeployment\References\SlowCheetah\SlowCheetah.Transforms.targets</SlowCheetahTargets>
-    <ProjectTestDir>$(SourceDirectory)\Dashboard.App.Tests</ProjectTestDir>
-    <TestProjectFile>$(SourceDirectory)\Dashboard.App.Tests\Dashboard.App.Tests.csproj</TestProjectFile>
+    <ProjectTestDir>$(SourceDirectory)\Dashboard.WebApp.Tests</ProjectTestDir>
+    <TestProjectFile>$(SourceDirectory)\Dashboard.WebApp.Tests\Dashboard.WebApp.Tests.csproj</TestProjectFile>
     <NUnitResultFile>$(MSBuildProjectDirectory)\nunit-result.xml</NUnitResultFile>
   </PropertyGroup>
 
@@ -72,7 +72,7 @@
 
     <!-- BUILDING - WEBSITE -->
     <Message Text="Web project building..." Importance="normal" />
-    <MSBuild Projects="$(SourceDirectory)\Dashboard.App.UI\Dashboard.App.UI.csproj" Targets="Clean;Rebuild;TransformAllFiles;ResolveReferences;_CopyWebApplication" Properties="WebProjectOutputDir=$(OutputDirectory)\;OutDir=$(OutputDirectory)\bin\;SlowCheetahTargets=$(SlowCheetahTargets);Configuration=$(Configuration);DebugSymbols=false;DebugType=None" />
+    <MSBuild Projects="$(SourceDirectory)\Dashboard.WebApp.UI\Dashboard.WebApp.UI.csproj" Targets="Clean;Rebuild;TransformAllFiles;ResolveReferences;_CopyWebApplication" Properties="WebProjectOutputDir=$(OutputDirectory)\;OutDir=$(OutputDirectory)\bin\;SlowCheetahTargets=$(SlowCheetahTargets);Configuration=$(Configuration);DebugSymbols=false;DebugType=None" />
     <!-- move transformed config files from bin to correct location -->
     <Message Text="Web project moving transformed configs..." Importance="normal" />
     <MSBuild.ExtensionPack.FileSystem.RoboCopy Source="$(OutputDirectory)\bin\" Destination="$(OutputDirectory)\" Files="@(ConfigFiles)" Options="/MOV" />

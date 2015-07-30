@@ -26,7 +26,7 @@
     <MSBuild.ExtensionPack.Compression.Zip 
       CompressPath="$(BaseOutputDirectory)"
       RemoveRoot="$(BaseOutputDirectory)"
-      ZipFileName="$(BaseOutputDirectory)\MainProject_SubProject_Package_$(Major)_$(Minor)_$(Build)_$(Revision).zip" 
+      ZipFileName="$(BaseOutputDirectory)\Dashboard_WebApp_Package_$(Major)_$(Minor)_$(Build)_$(Revision).zip" 
       TaskAction="Create" />
     
   </Target>
