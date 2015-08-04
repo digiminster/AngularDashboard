@@ -16,6 +16,13 @@ angular.module('dashboardApp', [
             templateUrl: 'assets/view/about.html',
             controller: 'AboutCtrl'
 
+        })
+
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'assets/view/contact.html',
+            controller: 'ContactCtrl'
+
         });
 
 
