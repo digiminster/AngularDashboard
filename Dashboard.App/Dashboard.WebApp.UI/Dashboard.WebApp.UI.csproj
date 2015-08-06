@@ -383,10 +383,13 @@
     <Content Include="assets\js\lib\fastclick.js" />
     <Content Include="assets\js\lib\ui-bootstrap-tpls-0.12.1.min.js" />
     <Content Include="assets\js\src\controllers\ContactCtrl.js" />
+    <Content Include="assets\js\src\controllers\FogbugzCtrl.js" />
     <Content Include="assets\js\src\controllers\ProjectsCtrl.js" />
     <Content Include="assets\js\src\controllers\AboutCtrl.js" />
     <Content Include="assets\js\src\controllers\HomeCtrl.js" />
     <Content Include="assets\js\src\main.js" />
+    <Content Include="assets\js\src\services\ConfigService.js" />
+    <Content Include="assets\js\src\services\FogbugzService.js" />
     <Content Include="assets\svg\logo-portcullis.svg" />
     <Content Include="assets\view\contact.html" />
     <Content Include="assets\view\about.html" />
@@ -403,9 +406,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\js\src\services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
