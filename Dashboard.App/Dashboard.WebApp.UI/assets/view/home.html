@@ -1,16 +1,33 @@
 ﻿<div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-    
-    <div ng-controller="ProjectsCtrl">
-        <h2>Projects</h2>
-        <ul>
-            <li ng-repeat="i in projects">TEST</li>
-        </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <div ng-controller="ProjectsCtrl">
+                <h2>Projects</h2>
+                <ul>
+                    <li ng-repeat="i in projects">TEST</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            Component
+        </div>
     </div>
-    
-    <div ng-controller="FogbugzCtrl">
-        <h2>Bugs</h2>
-        <h2>{{bugCount}}</h2>
+
+    <div class="row single-reports">
+        <div class="col-md-3 single-report bugs-count">
+            <div ng-controller="FogbugzCtrl">
+                <h2>Bugs</h2>
+                <h3>{{bugCount}}</h3>
+            </div>
+        </div>
+        <div class="col-md-3 single-report">
+            Component
+        </div>
+        <div class="col-md-3 single-report">
+            Component
+        </div>
+        <div class="col-md-3 single-report">
+            Component
+        </div>
     </div>
 </div>
