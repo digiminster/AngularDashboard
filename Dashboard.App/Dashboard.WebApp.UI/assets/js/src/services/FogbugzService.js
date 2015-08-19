@@ -6,8 +6,7 @@
         if (navigator.onLine) {
             return $http.get(ConfigService.getDashboardServiceBaseUrl() + 'fogbugz/Rapid%20Apps', { cache: false, timeout: 5000 })
                 .then(function(response) {
-                    var bugCount = JSON.parse(response.data[0]).TotalBugs;
-                    return bugCount;
+                    return response.data.TotalBugs;
                 })
                 .catch(function(error) {
                     console.log('Error getting bug count. ');
