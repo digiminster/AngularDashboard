@@ -8,8 +8,8 @@ angular.module('dashboardApp', [
             url: '/home',
             templateUrl: 'assets/view/home.html',
             controller: 'HomeCtrl'
-
         })
+
         
         .state('about', {
             url: '/about',

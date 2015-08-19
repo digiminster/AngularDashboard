@@ -12,7 +12,7 @@
             <div class="col-md-6 full-column">
                 <section id="bugs">
                     <div ng-controller="FogbugzCtrl">
-                        <p>Last updated: ???</p>
+                        <p>Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
                         <h2>Bugs</h2>
                         <h3>{{bugCount}}</h3>
                     </div>
