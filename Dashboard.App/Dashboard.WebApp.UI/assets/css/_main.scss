@@ -5,32 +5,41 @@ body {
   background-color: black;
   color: white;
 }
+
 .starter-template {
-  padding: 40px 15px;
+  padding: 10px 15px;
   text-align: center;
 
-  
-
-  .single-reports {
-
-      .single-report {
-
-          min-height: 150px;
-          border: 1px solid white;
-
-          h2 {
-              font-size: 30px;
-          }
-
-          h3 {
-              font-size: 50px;
-          }
-
-      }
-
+  .full-column{
+      padding-left:0px;
+      padding-right: 10px;
+      padding-top: 10px;
   }
 
+  section {
+    border: 1px solid white;
+  }
 }
+
+.container-max {
+    width:100%;
+}
+
+#projects, #servers {
+    height: 600px;
+}
+
+ #bugs {
+    min-height: 150px;
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 50px;
+    }
+  }
 
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

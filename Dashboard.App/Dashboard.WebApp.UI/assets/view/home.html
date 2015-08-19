@@ -1,33 +1,38 @@
 ﻿<div class="starter-template">
     <div class="row">
-        <div class="col-md-6">
-            <div ng-controller="ProjectsCtrl">
-                <h2>Projects</h2>
-                <ul>
-                    <li ng-repeat="i in projects">TEST</li>
-                </ul>
+        <div class="col-md-6 full-column">
+            <section id="projects">
+                <div ng-controller="ProjectsCtrl">
+                    <h2>Projects</h2>
+                    <ul>
+                        <li ng-repeat="i in projects">TEST</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="col-md-6 full-column">
+                <section id="bugs">
+                    <div ng-controller="FogbugzCtrl">
+                        <h2>Bugs</h2>
+                        <h3>{{bugCount}}</h3>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6 full-column">
+                <section id="temperature">
+                    <h2>Temperature</h2>
+                </section>
             </div>
         </div>
-        <div class="col-md-6">
-            Component
-        </div>
-    </div>
-
-    <div class="row single-reports">
-        <div class="col-md-3 single-report bugs-count">
-            <div ng-controller="FogbugzCtrl">
-                <h2>Bugs</h2>
-                <h3>{{bugCount}}</h3>
-            </div>
-        </div>
-        <div class="col-md-3 single-report">
-            Component
-        </div>
-        <div class="col-md-3 single-report">
-            Component
-        </div>
-        <div class="col-md-3 single-report">
-            Component
+        <div class="col-md-6 full-column">
+            <section id="servers">
+                <h2>Servers</h2>
+            </section>
+            <section id="trains">
+                <h2>Trains</h2>
+            </section>
+            <section id="tubes">
+                <h2>Tubes</h2>
+            </section>
         </div>
     </div>
 </div>

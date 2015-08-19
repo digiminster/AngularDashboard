@@ -5641,15 +5641,27 @@ body {
   color: white; }
 
 .starter-template {
-  padding: 40px 15px;
+  padding: 10px 15px;
   text-align: center; }
-  .starter-template .single-reports .single-report {
-    min-height: 150px;
+  .starter-template .full-column {
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-top: 10px; }
+  .starter-template section {
     border: 1px solid white; }
-    .starter-template .single-reports .single-report h2 {
-      font-size: 30px; }
-    .starter-template .single-reports .single-report h3 {
-      font-size: 50px; }
+
+.container-max {
+  width: 100%; }
+
+#projects, #servers {
+  height: 600px; }
+
+#bugs {
+  min-height: 150px; }
+  #bugs h2 {
+    font-size: 30px; }
+  #bugs h3 {
+    font-size: 50px; }
 
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
