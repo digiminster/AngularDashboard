@@ -5657,7 +5657,8 @@ body {
   height: 600px; }
 
 #bugs {
-  min-height: 150px; }
+  min-height: 150px;
+  background-color: darkred; }
   #bugs h2 {
     font-size: 30px; }
   #bugs h3 {
