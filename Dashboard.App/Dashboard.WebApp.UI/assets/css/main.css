@@ -5663,21 +5663,15 @@ body {
   #bugs h3 {
     font-size: 50px; }
 
-<<<<<<< HEAD
 #tubes #tubeLineName {
   font-size: 20px; }
-#tubes #tubeStatus {
-=======
-.small-header h4 {
-  text-align: left;
-  margin-left: 10px; }
-
-#tubeLineName {
+#tubes #tubeLineName {
   font-size: 20px;
   transition: all 1s ease; }
-
-#tubeStatus {
->>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43
+#tubes .small-header h4 {
+  text-align: left;
+  margin-left: 10px; }
+#tubes #tubeStatus {
   background-color: white;
   color: black;
   font-size: 20px;
