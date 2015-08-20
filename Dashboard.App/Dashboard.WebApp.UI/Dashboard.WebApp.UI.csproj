@@ -393,8 +393,10 @@
     <Content Include="assets\js\src\services\FogbugzService.js" />
     <Content Include="assets\js\src\services\TubeService.js" />
     <Content Include="assets\svg\logo-portcullis.svg" />
+    <Content Include="assets\view\tubes.html" />
     <Content Include="assets\view\contact.html" />
     <Content Include="assets\view\about.html" />
+    <Content Include="assets\view\bugs.html" />
     <Content Include="assets\view\home.html" />
     <Content Include="index.html" />
     <Content Include="Web.config">
