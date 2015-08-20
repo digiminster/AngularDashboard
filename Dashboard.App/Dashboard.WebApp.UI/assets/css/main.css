@@ -5663,13 +5663,32 @@ body {
   #bugs h3 {
     font-size: 50px; }
 
+<<<<<<< HEAD
 #tubes #tubeLineName {
   font-size: 20px; }
 #tubes #tubeStatus {
+=======
+.small-header h4 {
+  text-align: left;
+  margin-left: 10px; }
+
+#tubeLineName {
+  font-size: 20px;
+  transition: all 1s ease; }
+
+#tubeStatus {
+>>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43
   background-color: white;
   color: black;
   font-size: 20px;
   text-align: left; }
+
+#trains .route span {
+  float: left;
+  margin-left: 10px; }
+#trains .route .table.table-condensed, #trains .route th, #trains .route td {
+  text-align: left;
+  border-color: gray; }
 
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }

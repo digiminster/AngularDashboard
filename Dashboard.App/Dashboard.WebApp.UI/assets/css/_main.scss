@@ -1,12 +1,13 @@
 @import '_bootstrap';
 
 body {
-  padding-top: 50px;
-  background-color: black;
-  color: white;
+    padding-top: 50px;
+    background-color: black;
+    color: white;
 }
 
 .starter-template {
+<<<<<<< HEAD
  
   text-align: center;
 
@@ -19,10 +20,24 @@ body {
     margin-top: 10px;
     margin-right: 10px;
   }
+=======
+    padding: 10px 15px;
+    text-align: center;
+
+    .full-column {
+        padding-left: 0px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    section {
+        border: 1px solid white;
+    }
+>>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43
 }
 
 .container-max {
-    width:100%;
+    width: 100%;
 }
 
 #projects, #servers {
@@ -42,10 +57,24 @@ body {
     }
 }
 
+<<<<<<< HEAD
 #tubes {
     #tubeLineName {
         font-size: 20px;
     }
+=======
+.small-header {
+    h4 {
+        text-align: left;
+        margin-left: 10px;
+    }
+}
+
+#tubeLineName {
+    font-size: 20px;
+    transition: all 1s ease;
+}
+>>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43
 
     #tubeStatus {
         background-color: white;
@@ -55,6 +84,26 @@ body {
     }
 }
 
+<<<<<<< HEAD
 
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+=======
+#trains {
+    .route {
+        span {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .table.table-condensed, th, td {
+            text-align: left;
+            border-color: gray;
+        }
+    }
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+>>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43

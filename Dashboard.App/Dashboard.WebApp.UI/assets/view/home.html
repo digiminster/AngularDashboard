@@ -22,10 +22,50 @@
             <section id="servers">
                 <h2>Servers</h2>
             </section>
+<<<<<<< HEAD
             <section id="trains">
                 <h2>Trains</h2>
             </section>
             <section id="tubes" ng-include="'assets/view/tubes.html'"></section>
+=======
+            <section id="trains" class="small-header" ng-controller="TrainCtrl">
+                <h4>Trains</h4>
+                <div class="route">
+                    <span>{{route}}</span>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in departures">
+                                <td>{{d.ScheduledTime}}</td>
+                                <td>{{d.Name}}</td>
+                                <td>{{d.ExpectedTime}}</td>
+                                <td>{{d.Platform}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+            <section id="tubes" class="small-header" ng-controller="TubeCtrl">
+                <h4>Tube Information</h4>
+                <div>
+                    <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : backColour, 'foregroundColor' : foreColour}">
+                        {{lineName}}
+                    </div>
+                    <div id="tubeStatus" class="col-md-8">
+                        {{status}}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+>>>>>>> b3c10504c5d20f9eb421a488e8f6053bc7b28e43
         </div>
     </div>
 </div>

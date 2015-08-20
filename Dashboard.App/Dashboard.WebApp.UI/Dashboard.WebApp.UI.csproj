@@ -387,10 +387,12 @@
     <Content Include="assets\js\src\controllers\ProjectsCtrl.js" />
     <Content Include="assets\js\src\controllers\AboutCtrl.js" />
     <Content Include="assets\js\src\controllers\HomeCtrl.js" />
+    <Content Include="assets\js\src\controllers\TrainCtrl.js" />
     <Content Include="assets\js\src\controllers\TubeCtrl.js" />
     <Content Include="assets\js\src\main.js" />
     <Content Include="assets\js\src\services\ConfigService.js" />
     <Content Include="assets\js\src\services\FogbugzService.js" />
+    <Content Include="assets\js\src\services\TrainService.js" />
     <Content Include="assets\js\src\services\TubeService.js" />
     <Content Include="assets\svg\logo-portcullis.svg" />
     <Content Include="assets\view\tubes.html" />
