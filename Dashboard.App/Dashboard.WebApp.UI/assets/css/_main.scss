@@ -1,28 +1,28 @@
 @import '_bootstrap';
 
 body {
-  padding-top: 50px;
-  background-color: black;
-  color: white;
+    padding-top: 50px;
+    background-color: black;
+    color: white;
 }
 
 .starter-template {
-  padding: 10px 15px;
-  text-align: center;
+    padding: 10px 15px;
+    text-align: center;
 
-  .full-column{
-      padding-left:0px;
-      padding-right: 10px;
-      padding-top: 10px;
-  }
+    .full-column {
+        padding-left: 0px;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
 
-  section {
-    border: 1px solid white;
-  }
+    section {
+        border: 1px solid white;
+    }
 }
 
 .container-max {
-    width:100%;
+    width: 100%;
 }
 
 #projects, #servers {
@@ -42,8 +42,16 @@ body {
     }
 }
 
+.small-header {
+    h4 {
+        text-align: left;
+        margin-left: 10px;
+    }
+}
+
 #tubeLineName {
     font-size: 20px;
+    transition: all 1s ease;
 }
 
 #tubeStatus {
@@ -53,4 +61,20 @@ body {
     text-align: left;
 }
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+#trains {
+    .route {
+        span {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .table.table-condensed, th, td {
+            text-align: left;
+            border-color: gray;
+        }
+    }
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
