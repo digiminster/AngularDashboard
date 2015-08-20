@@ -31,8 +31,14 @@
             <section id="trains">
                 <h2>Trains</h2>
             </section>
-            <section id="tubes">
-                <h2>Tubes</h2>
+            <section id="tubes" ng-controller="TubeCtrl">
+                <h3>Tube Information</h3>
+                <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : backColour, 'foregroundColor' : foreColour}">
+                    {{lineName}}
+                </div>
+                <div id="tubeStatus" class="col-md-8">
+                    {{status}}
+                </div>
             </section>
         </div>
     </div>
