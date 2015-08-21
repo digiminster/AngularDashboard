@@ -5654,7 +5654,10 @@ body {
   padding-top: 3px;
   padding-bottom: 3px; }
   .small-header span {
-    font-size: 16px; }
+    font-size: 16px;
+    text-align: left; }
+  .small-header p {
+    text-align: left; }
 
 .container-max {
   width: 100%; }

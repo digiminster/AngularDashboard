@@ -34,6 +34,8 @@
                 $scope.departuresB = "";
             }
 
+            $scope.lastUpdated = new Date();
+
         }, delay, 0, true);
     };
 

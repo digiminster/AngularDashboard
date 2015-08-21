@@ -1,6 +1,8 @@
 ﻿<div ng-controller="TubeCtrl" class="clearfix">
     <div class="small-header">
-        <span>Tube Information</span>
+        <span class="col-md-7">Tube Information</span>
+        <p class="col-md-5">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+        <div class="clearfix"></div>
     </div>
     <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : backColour, 'foregroundColor' : foreColour}">
         {{lineName}}

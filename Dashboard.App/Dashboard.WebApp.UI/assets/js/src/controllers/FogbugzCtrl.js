@@ -6,7 +6,6 @@
             bugCount.then(function(result) {
                 $scope.bugCount = result;
                 $scope.lastUpdated = new Date();
-                getBugCount(10000);
             });
         }, delay, 0, true);
     };

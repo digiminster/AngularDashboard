@@ -17,7 +17,7 @@
                     lineIndex = 0;
                 }
 
-                getTubeStatus(lineIndex, 10000);
+                $scope.lastUpdated = new Date();
             });
         }, delay, 0, true);
     };
