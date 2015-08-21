@@ -1,9 +1,9 @@
-﻿angular.module('dashboardApp').controller('TubeCtrl', function($scope, TubeService, $timeout) {
+﻿angular.module('dashboardApp').controller('TubeCtrl', function($scope, TubeService, $interval) {
 
     var lines = ["Jubilee", "District", "Circle", "Victoria", "Northern", "Piccadilly", "Central", "Bakerloo"];
 
     var getTubeStatus = function (lineIndex, delay) {
-        $timeout(function () {
+        $interval(function () {
             var status = TubeService.getLineStatus(lines[lineIndex]);
             status.then(function (result) {
                 $scope.lineName = lines[lineIndex];
@@ -19,8 +19,8 @@
 
                 getTubeStatus(lineIndex, 10000);
             });
-        }, delay, true);
+        }, delay, 0, true);
     };
 
-    getTubeStatus(0, 0);
+    getTubeStatus(0, 10000);
 });

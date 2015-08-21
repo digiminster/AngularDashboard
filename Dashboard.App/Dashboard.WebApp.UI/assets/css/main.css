@@ -5649,6 +5649,13 @@ body {
     margin-top: 10px;
     margin-right: 10px; }
 
+.small-header {
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px; }
+  .small-header span {
+    font-size: 16px; }
+
 .container-max {
   width: 100%; }
 
@@ -5668,9 +5675,6 @@ body {
 #tubes #tubeLineName {
   font-size: 20px;
   transition: all 1s ease; }
-#tubes .small-header h4 {
-  text-align: left;
-  margin-left: 10px; }
 #tubes #tubeStatus {
   background-color: white;
   color: black;
@@ -5679,10 +5683,13 @@ body {
 
 #trains .route span {
   float: left;
-  margin-left: 10px; }
+  font-size: 14px; }
 #trains .route .table.table-condensed, #trains .route th, #trains .route td {
   text-align: left;
-  border-color: gray; }
+  border-color: gray;
+  font-size: 12px;
+  padding: 2px;
+  margin: 0; }
 
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }

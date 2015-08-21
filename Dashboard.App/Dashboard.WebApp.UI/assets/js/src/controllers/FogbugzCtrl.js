@@ -1,15 +1,15 @@
-﻿angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, $timeout) {
+﻿angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, $interval) {
 
     var getBugCount = function(delay) {
-        $timeout(function() {
+        $interval(function () {
             var bugCount = FogbugzService.getBugCount();
             bugCount.then(function(result) {
                 $scope.bugCount = result;
                 $scope.lastUpdated = new Date();
                 getBugCount(10000);
             });
-        }, delay, true);
+        }, delay, 0, true);
     };
 
-    getBugCount(0);
+    getBugCount(10000);
 });
