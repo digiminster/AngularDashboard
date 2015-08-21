@@ -1,6 +1,6 @@
-﻿angular.module('dashboardApp').controller('TrainCtrl', function($scope, TrainService, $interval) {
+﻿angular.module('dashboardApp').controller('TrainCtrl', function($scope, TrainService, $interval, ConfigService) {
 
-    var routes = [{ from: "KGX", to: "SVG" }, { from: "HUL", to: "KGX" }, { from: "CPM", to: "PAD" }, { from: "HES", to: "BUR" }, { from: "IPS", to: "NRW" }, { from: "EDB", to: "GLQ" }];
+    var routes = ConfigService.getTrainRoutes();
 
     var getDepartures = function (routeIndexA, routeIndexB, delay) {
         $interval(function () {
@@ -39,5 +39,5 @@
         }, delay, 0, true);
     };
 
-    getDepartures(0, 1, 10000);
+    getDepartures(0, 1, ConfigService.getTrainRefreshInterval());
 });

@@ -7,9 +7,13 @@ angular.module('dashboardApp', [
         .state('home', {
             url: '/home',
             templateUrl: 'assets/view/home.html',
-            controller: 'HomeCtrl'
+            controller: 'HomeCtrl',
+            resolve: {
+                config : function(ConfigService) {
+                    return ConfigService.loadFile();
+                }
+            }               
         })
-
         
         .state('about', {
             url: '/about',

@@ -10,5 +10,5 @@
         }, delay, 0, true);
     };
 
-    getBugCount(10000);
+    getBugCount(ConfigService.getBugRefreshInterval());
 });

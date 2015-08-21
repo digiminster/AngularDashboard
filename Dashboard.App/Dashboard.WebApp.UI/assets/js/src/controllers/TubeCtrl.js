@@ -1,6 +1,6 @@
-﻿angular.module('dashboardApp').controller('TubeCtrl', function($scope, TubeService, $interval) {
+﻿angular.module('dashboardApp').controller('TubeCtrl', function($scope, TubeService, $interval, ConfigService) {
 
-    var lines = ["Jubilee", "District", "Circle", "Victoria", "Northern", "Piccadilly", "Central", "Bakerloo"];
+    var lines = ConfigService.getTubeLines();
 
     var getTubeStatus = function (lineIndex, delay) {
         $interval(function () {
@@ -22,5 +22,5 @@
         }, delay, 0, true);
     };
 
-    getTubeStatus(0, 10000);
+    getTubeStatus(0, ConfigService.getTubeRefreshInterval());
 });

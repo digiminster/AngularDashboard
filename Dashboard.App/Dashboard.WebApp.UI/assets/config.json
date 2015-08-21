@@ -1,3 +1,16 @@
 ﻿{
-    "serviceBaseUrl": "http://local.dashboard.service/"
+    "serviceBaseUrl": "http://local.dashboard.service/",
+    "tubeLines": [ "Jubilee", "District", "Circle", "Central", "Victoria", "Northern", "Piccadilly", "Bakerloo", "Metropolitan" ],
+    "trainRoutes": [
+        { "from": "CDF", "to": "BRI" },
+        { "from": "KGX", "to": "SVG" },
+        { "from": "HUL", "to": "KGX" },
+        { "from": "CPM", "to": "PAD" },
+        { "from": "HES", "to": "BUR" },
+        { "from": "IPS", "to": "NRW" },
+        { "from": "EDB", "to": "GLQ" }
+    ],
+    "bugRefreshInterval": 10000,
+    "tubeRefreshInterval": 10000,
+    "trainRefreshInterval":  10000
 }
