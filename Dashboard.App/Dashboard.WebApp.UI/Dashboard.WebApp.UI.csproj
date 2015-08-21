@@ -144,6 +144,7 @@
     <Content Include="assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\config.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

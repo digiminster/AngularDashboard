@@ -1,4 +1,4 @@
-﻿angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, $interval) {
+﻿angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, ConfigService, $interval) {
 
     var getBugCount = function(delay) {
         $interval(function () {
