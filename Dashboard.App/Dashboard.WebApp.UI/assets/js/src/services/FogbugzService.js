@@ -4,7 +4,7 @@
     fogbugzService.getBugCount = function () {
 
         if (navigator.onLine) {
-            return $http.get(ConfigService.getDashboardServiceBaseUrl() + 'fogbugz/Rapid%20Apps', { cache: false, timeout: 5000 })
+            return $http.get(ConfigService.getDashboardServiceBaseUrl() + ConfigService.getBugsUrl(), { cache: false, timeout: 5000 })
                 .then(function(response) {
                     return response.data.TotalBugs;
                 })

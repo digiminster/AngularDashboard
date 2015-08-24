@@ -6,7 +6,8 @@
         trainRoutes: '',
         bugRefreshInterval: 0,
         tubeRefreshInterval: 0,
-        trainRefreshInterval: 0
+        trainRefreshInterval: 0,
+        bugsUrl: ''
     };
 
     configService.loadFile = function () {
@@ -18,6 +19,7 @@
                     configSettings.bugRefreshInterval = response.data.bugRefreshInterval;
                     configSettings.tubeRefreshInterval = response.data.tubeRefreshInterval;
                     configSettings.trainRefreshInterval = response.data.trainRefreshInterval;
+                    configSettings.bugsUrl = response.data.bugsUrl;
             })
                 .catch(function (error) {
                     console.log("Could not load config file.");
@@ -46,6 +48,10 @@
 
     configService.getTrainRefreshInterval = function () {
         return configSettings.trainRefreshInterval;
+    }
+
+    configService.getBugsUrl = function () {
+        return configSettings.bugsUrl;
     }
 
     return configService;
