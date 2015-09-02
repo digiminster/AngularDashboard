@@ -13,5 +13,5 @@
     "bugRefreshInterval": 10000,
     "tubeRefreshInterval": 10000,
     "trainRefreshInterval": 10000,
-    "bugsUrl": "fogbugz/Rapid%20Apps"
+    "bugsUrl": "bugverifycount/Rapid%20Apps"
 }

@@ -43,14 +43,30 @@ body {
 
 #bugs {
     min-height: 150px;
-    background-color: darkred;
 
     h2 {
-        font-size: 30px;
+        font-size: 20px;
     }
 
-    h3 {
-        font-size: 50px;
+    span {
+        font-size: 110px;
+    }
+
+    .fogbugzPanel {
+        width: 48%;
+    }
+
+    .bugPanel {
+        @extend .fogbugzPanel;
+        background-color: red;
+        float: left;
+    }
+
+    .verifyPanel {
+        @extend .fogbugzPanel;
+        background-color: yellow;
+        color: black;
+        float: right;
     }
 }
 

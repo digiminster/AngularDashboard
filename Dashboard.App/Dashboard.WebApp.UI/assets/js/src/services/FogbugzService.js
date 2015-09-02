@@ -6,7 +6,7 @@
         if (navigator.onLine) {
             return $http.get(ConfigService.getDashboardServiceBaseUrl() + ConfigService.getBugsUrl(), { cache: false, timeout: 5000 })
                 .then(function(response) {
-                    return response.data.TotalBugs;
+                    return response.data;
                 })
                 .catch(function(error) {
                     console.log('Error getting bug count. ');

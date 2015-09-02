@@ -2,8 +2,9 @@
 
     var getBugCount = function() {
         var bugCount = FogbugzService.getBugCount();
-        bugCount.then(function(result) {
-            $scope.bugCount = result;
+        bugCount.then(function (result) {
+            $scope.bugCount = result.TotalBugs;
+            $scope.verifyCount = result.TotalVerify;
             $scope.lastUpdated = new Date();
         });
     }
