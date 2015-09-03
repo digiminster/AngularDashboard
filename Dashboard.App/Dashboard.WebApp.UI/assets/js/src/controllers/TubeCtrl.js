@@ -1,26 +1,28 @@
 ﻿angular.module('dashboardApp').controller('TubeCtrl', function($scope, TubeService, $interval, ConfigService) {
+    $scope.lines = ConfigService.getTubeLines();
+    $scope.lineStatuses = [];
+    $scope.tubeScrollInterval = ConfigService.getTubeScrollInterval();
+    var tubeRefreshInterval = ConfigService.getTubeRefreshInterval();
 
-    var lines = ConfigService.getTubeLines();
+    angular.forEach($scope.lines, function (value, key) {
+        var lineStatus = { lineName: value, status: "", backColour: "", foreColour: "" };
+        $scope.lineStatuses.push(lineStatus);
+    });
 
-    var getTubeStatus = function (lineIndex, delay) {
-        $interval(function () {
-            var status = TubeService.getLineStatus(lines[lineIndex]);
+    var refreshLineStatuses = function() {
+        angular.forEach($scope.lineStatuses, function (value, key) {
+            var status = TubeService.getLineStatus(value.lineName);
             status.then(function (result) {
-                $scope.lineName = lines[lineIndex];
-                $scope.status = result.CurrentStatus;
-                $scope.backColour = result.BackColor;
-                $scope.foreColour = result.ForeColor;
-
-                lineIndex++;
-
-                if (lineIndex === lines.length) {
-                    lineIndex = 0;
-                }
-
-                $scope.lastUpdated = new Date();
+                value.status = result.CurrentStatus;
+                value.backColour = result.BackColor;
+                value.foreColour = result.ForeColor;
             });
-        }, delay, 0, true);
+        });
+        $scope.lastUpdated = new Date();
     };
 
-    getTubeStatus(0, ConfigService.getTubeRefreshInterval());
+    refreshLineStatuses();
+    $interval(function () {
+        refreshLineStatuses();
+    }, tubeRefreshInterval, 0, true);
 });

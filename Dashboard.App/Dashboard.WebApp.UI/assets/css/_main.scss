@@ -24,12 +24,16 @@ body {
     width: 100%;
     padding-top: 3px;
     padding-bottom: 3px;
+
     span {
         font-size: 16px;
         text-align: left;
+        font-weight: bold;
     }
+
     p {
-        text-align: left;
+        text-align: right;
+        font-size: 12px;
     }
 }
 
@@ -70,23 +74,15 @@ body {
     }
 }
 
-#tubes {
-    #tubeLineName {
-        font-size: 20px;
-    }
+#tubeLineName {
+    font-size: 20px;
+}
 
-
-    #tubeLineName {
-        font-size: 20px;
-        transition: all 1s ease;
-    }
-
-    #tubeStatus {
-        background-color: white;
-        color: black;
-        font-size: 20px;
-        text-align: left;
-    }
+#tubeStatus {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    text-align: left;
 }
 
 #trains {
@@ -108,4 +104,8 @@ body {
 
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
+}
+
+.carousel-control {
+    visibility: hidden;
 }

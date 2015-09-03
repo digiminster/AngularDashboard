@@ -6,6 +6,7 @@
         trainRoutes: '',
         bugRefreshInterval: 0,
         tubeRefreshInterval: 0,
+        tubeScrollInterval: 0,
         trainRefreshInterval: 0,
         bugsUrl: ''
     };
@@ -18,6 +19,7 @@
                     configSettings.trainRoutes = response.data.trainRoutes;
                     configSettings.bugRefreshInterval = response.data.bugRefreshInterval;
                     configSettings.tubeRefreshInterval = response.data.tubeRefreshInterval;
+                    configSettings.tubeScrollInterval = response.data.tubeScrollInterval;
                     configSettings.trainRefreshInterval = response.data.trainRefreshInterval;
                     configSettings.bugsUrl = response.data.bugsUrl;
             })
@@ -44,6 +46,10 @@
 
     configService.getTubeRefreshInterval = function() {
         return configSettings.tubeRefreshInterval;
+    }
+
+    configService.getTubeScrollInterval = function () {
+        return configSettings.tubeScrollInterval;
     }
 
     configService.getTrainRefreshInterval = function () {

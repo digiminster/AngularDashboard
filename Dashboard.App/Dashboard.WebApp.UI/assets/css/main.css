@@ -5655,9 +5655,11 @@ body {
   padding-bottom: 3px; }
   .small-header span {
     font-size: 16px;
-    text-align: left; }
+    text-align: left;
+    font-weight: bold; }
   .small-header p {
-    text-align: left; }
+    text-align: right;
+    font-size: 12px; }
 
 .container-max {
   width: 100%; }
@@ -5681,12 +5683,10 @@ body {
     color: black;
     float: right; }
 
-#tubes #tubeLineName {
+#tubeLineName {
   font-size: 20px; }
-#tubes #tubeLineName {
-  font-size: 20px;
-  transition: all 1s ease; }
-#tubes #tubeStatus {
+
+#tubeStatus {
   background-color: white;
   color: black;
   font-size: 20px;
@@ -5704,5 +5704,8 @@ body {
 
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
+
+.carousel-control {
+  visibility: hidden; }
 
 /*# sourceMappingURL=main.css.map */

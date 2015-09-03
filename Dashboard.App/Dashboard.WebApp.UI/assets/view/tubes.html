@@ -4,11 +4,16 @@
         <p class="col-md-5">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
         <div class="clearfix"></div>
     </div>
-    <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : backColour, 'foregroundColor' : foreColour}">
-        {{lineName}}
-    </div>
-    <div id="tubeStatus" class="col-md-8">
-        {{status}}
+    <div>
+        <carousel interval="tubeScrollInterval">
+            <slide ng-repeat="line in lineStatuses">
+                <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : line.backColour, 'foregroundColor' : line.foreColour}">
+                    {{line.lineName}}
+                </div>
+                <div id="tubeStatus" class="col-md-8">
+                    {{line.status}}
+                </div>
+            </slide>
+        </carousel>
     </div>
 </div>
-               
