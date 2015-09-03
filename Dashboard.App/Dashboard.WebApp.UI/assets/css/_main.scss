@@ -25,15 +25,16 @@ body {
     padding-top: 3px;
     padding-bottom: 3px;
 
-    span {
+    .header {
         font-size: 16px;
         text-align: left;
         font-weight: bold;
     }
 
-    p {
+    .last-updated {
         text-align: right;
         font-size: 12px;
+        padding-top: 3px;
     }
 }
 
@@ -88,7 +89,7 @@ body {
 #trains {
     .route {
         span {
-            float: left;
+            text-align: left;
             font-size: 14px;
         }
 
@@ -108,4 +109,8 @@ body {
 
 .carousel-control {
     visibility: hidden;
+}
+
+.carousel-indicators {
+    top: -22px;
 }

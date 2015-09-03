@@ -1,43 +1,40 @@
-﻿angular.module('dashboardApp').controller('TrainCtrl', function($scope, TrainService, $interval, ConfigService) {
+﻿angular.module('dashboardApp').controller('TrainCtrl', function ($scope, TrainService, $interval, ConfigService) {
 
     var routes = ConfigService.getTrainRoutes();
+    $scope.trainScrollInterval = ConfigService.getTrainScrollInterval();
+    $scope.departureTimes = [];
+    var trainRefreshInterval = ConfigService.getTrainRefreshInterval();
 
-    var getDepartures = function (routeIndexA, routeIndexB, delay) {
-        $interval(function () {
+    for (var i = 0; i < routes.length; i += 2) {
+        var departureTime = { fromA: routes[i].from, toA: routes[i].to, departuresA: '', fromB: '', toB: '', departuresB: '', secondRouteVisibility: '' };
 
-            var statusA = TrainService.getDepartures(routes[routeIndexA].from, routes[routeIndexA].to);
-            statusA.then(function (result) {
-                $scope.routeA = routes[routeIndexA].from + ' to ' + routes[routeIndexA].to;
-                $scope.departuresA = result.TrainServices;
+        if (i + 1 < routes.length) {
+            departureTime.fromB = routes[i + 1].from;
+            departureTime.toB = routes[i + 1].to;
+        }
 
-                routeIndexA += 2;
+        $scope.departureTimes.push(departureTime);
+    }
 
-                if (routeIndexA >= routes.length) {
-                    routeIndexA = 0;
+    var getDepartures = function () {
+        angular.forEach($scope.departureTimes, function (value, key) {
+            var statuses = TrainService.getDepartures(value.fromA, value.toA, value.fromB, value.toB);
+            statuses.then(function (result) {
+                if (value.toB === '' && value.fromB === '') {
+                    value.departuresA = result.TrainServices;
+                    value.secondRouteVisibility = "hidden";
+                } else {
+                    value.departuresA = result[0].TrainServices;
+                    value.departuresB = result[1].TrainServices;
+                    value.secondRouteVisibility = "visible";
                 }
             });
-
-            if (routeIndexB <= routes.length) {
-                var statusB = TrainService.getDepartures(routes[routeIndexB].from, routes[routeIndexB].to);
-                statusB.then(function(result) {
-                    $scope.routeB = routes[routeIndexB].from + ' to ' + routes[routeIndexB].to;
-                    $scope.departuresB = result.TrainServices;
-
-                    routeIndexB += 2;
-
-                    if (routeIndexB >= routes.length) {
-                        routeIndexB = 1;
-                    }
-                });
-            } else {
-                $scope.routeB = "";
-                $scope.departuresB = "";
-            }
-
-            $scope.lastUpdated = new Date();
-
-        }, delay, 0, true);
+        });
+        $scope.lastUpdated = new Date();
     };
 
-    getDepartures(0, 1, ConfigService.getTrainRefreshInterval());
+    getDepartures();
+    $interval(function () {
+        getDepartures();
+    }, trainRefreshInterval, 0, true);
 });

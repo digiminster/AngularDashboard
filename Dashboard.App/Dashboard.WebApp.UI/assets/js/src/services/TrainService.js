@@ -1,9 +1,9 @@
 ﻿angular.module('dashboardApp').factory('TrainService', function($http, ConfigService) {
     var trainService = {};
 
-    trainService.getDepartures = function(from, to) {
+    trainService.getDepartures = function(fromA, toA, fromB, toB) {
         if (navigator.onLine) {
-            return $http.get(ConfigService.getDashboardServiceBaseUrl() + 'trains/' + from + '/' + to, { cache: false, timeout: 5000 })
+            return $http.get(ConfigService.getDashboardServiceBaseUrl() + 'trains/' + fromA + '/' + toA + '/' + fromB + '/' + toB, { cache: false, timeout: 5000 })
                 .then(function (response) {
                     return response.data;
                 })

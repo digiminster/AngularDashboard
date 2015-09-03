@@ -9,9 +9,6 @@
         });
     }
 
-    var repeatBugCountCall = function(delay) {
-        $interval(getBugCount, delay, 0, true);
-    };
-
-    repeatBugCountCall(ConfigService.getBugRefreshInterval());
+    getBugCount();
+    $interval(getBugCount, ConfigService.getBugRefreshInterval(), 0, true);
 });

@@ -1,52 +1,53 @@
-﻿<div class="small-header" ng-controller="TrainCtrl">
+﻿<div ng-controller="TrainCtrl">
     <div class="small-header">
-        <span class="col-md-7">Train Information</span>
-        <p class="col-md-5">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+        <span class="col-md-7 header">Train Information</span>
+        <span class="col-md-5 last-updated">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</span>
         <div class="clearfix"></div>
     </div>
-    <div>
-        <div class="route col-md-6">
-            <span>{{routeA}}</span>
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Destination</th>
-                        <th>Status</th>
-                        <th>Platform</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="d in departuresA">
-                        <td>{{d.ScheduledTime}}</td>
-                        <td>{{d.Name}}</td>
-                        <td>{{d.ExpectedTime}}</td>
-                        <td>{{d.Platform}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="route col-md-6">
-            <span>{{routeB}}</span>
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Destination</th>
-                        <th>Status</th>
-                        <th>Platform</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="d in departuresB">
-                        <td>{{d.ScheduledTime}}</td>
-                        <td>{{d.Name}}</td>
-                        <td>{{d.ExpectedTime}}</td>
-                        <td>{{d.Platform}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+    <carousel interval="trainScrollInterval">
+        <slide ng-repeat="time in departureTimes">
+            <div class="route col-md-6">
+                <span>{{time.fromA}} to {{time.toA}}</span>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in time.departuresA">
+                            <td>{{d.ScheduledTime}}</td>
+                            <td>{{d.Name}}</td>
+                            <td>{{d.ExpectedTime}}</td>
+                            <td>{{d.Platform}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="route col-md-6" ng-style="{'visibility': time.secondRouteVisibility}">
+                <span>{{time.fromB}} to {{time.toB}}</span>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in time.departuresB">
+                            <td>{{d.ScheduledTime}}</td>
+                            <td>{{d.Name}}</td>
+                            <td>{{d.ExpectedTime}}</td>
+                            <td>{{d.Platform}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+    </carousel>
 </div>

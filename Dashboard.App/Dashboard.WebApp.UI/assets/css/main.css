@@ -5653,13 +5653,14 @@ body {
   width: 100%;
   padding-top: 3px;
   padding-bottom: 3px; }
-  .small-header span {
+  .small-header .header {
     font-size: 16px;
     text-align: left;
     font-weight: bold; }
-  .small-header p {
+  .small-header .last-updated {
     text-align: right;
-    font-size: 12px; }
+    font-size: 12px;
+    padding-top: 3px; }
 
 .container-max {
   width: 100%; }
@@ -5693,7 +5694,7 @@ body {
   text-align: left; }
 
 #trains .route span {
-  float: left;
+  text-align: left;
   font-size: 14px; }
 #trains .route .table.table-condensed, #trains .route th, #trains .route td {
   text-align: left;
@@ -5707,5 +5708,8 @@ body {
 
 .carousel-control {
   visibility: hidden; }
+
+.carousel-indicators {
+  top: -22px; }
 
 /*# sourceMappingURL=main.css.map */

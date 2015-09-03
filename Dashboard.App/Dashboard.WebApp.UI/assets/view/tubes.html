@@ -1,19 +1,17 @@
-﻿<div ng-controller="TubeCtrl" class="clearfix">
+﻿<div ng-controller="TubeCtrl">
     <div class="small-header">
-        <span class="col-md-7">Tube Information</span>
-        <p class="col-md-5">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+        <span class="col-md-7 header">Tube Information</span>
+        <span class="col-md-5 last-updated">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</span>
         <div class="clearfix"></div>
     </div>
-    <div>
-        <carousel interval="tubeScrollInterval">
-            <slide ng-repeat="line in lineStatuses">
-                <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : line.backColour, 'foregroundColor' : line.foreColour}">
-                    {{line.lineName}}
-                </div>
-                <div id="tubeStatus" class="col-md-8">
-                    {{line.status}}
-                </div>
-            </slide>
-        </carousel>
-    </div>
+    <carousel interval="tubeScrollInterval">
+        <slide ng-repeat="line in lineStatuses">
+            <div id="tubeLineName" class="col-md-4" ng-style="{'backgroundColor' : line.backColour, 'foregroundColor' : line.foreColour}">
+                {{line.lineName}}
+            </div>
+            <div id="tubeStatus" class="col-md-8">
+                {{line.status}}
+            </div>
+        </slide>
+    </carousel>
 </div>

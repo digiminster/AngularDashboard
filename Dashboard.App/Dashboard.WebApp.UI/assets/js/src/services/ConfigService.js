@@ -8,6 +8,7 @@
         tubeRefreshInterval: 0,
         tubeScrollInterval: 0,
         trainRefreshInterval: 0,
+        trainScrollInterval: 0,
         bugsUrl: ''
     };
 
@@ -21,6 +22,7 @@
                     configSettings.tubeRefreshInterval = response.data.tubeRefreshInterval;
                     configSettings.tubeScrollInterval = response.data.tubeScrollInterval;
                     configSettings.trainRefreshInterval = response.data.trainRefreshInterval;
+                    configSettings.trainScrollInterval = response.data.trainScrollInterval;
                     configSettings.bugsUrl = response.data.bugsUrl;
             })
                 .catch(function (error) {
@@ -54,6 +56,10 @@
 
     configService.getTrainRefreshInterval = function () {
         return configSettings.trainRefreshInterval;
+    }
+
+    configService.getTrainScrollInterval = function () {
+        return configSettings.trainScrollInterval;
     }
 
     configService.getBugsUrl = function () {

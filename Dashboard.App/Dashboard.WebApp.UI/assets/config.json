@@ -13,6 +13,7 @@
     "bugRefreshInterval": 10000,
     "tubeRefreshInterval": 60000,
     "tubeScrollInterval": 5000,
-    "trainRefreshInterval": 10000,
+    "trainRefreshInterval": 60000,
+    "trainScrollInterval": 5000,
     "bugsUrl": "bugverifycount/Rapid%20Apps"
 }
