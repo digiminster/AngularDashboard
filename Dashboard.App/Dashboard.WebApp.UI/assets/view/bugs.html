@@ -1,12 +1,12 @@
-﻿<div ng-controller="FogbugzCtrl">
-    <section class="bugPanel">
+﻿<div ng-controller="FogbugzCtrl" class="dashboard-panel">
+    <div class="col-md-6 bugPanel">
         <p>Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
         <h2>BUG TOTAL</h2>
         <span>{{bugCount}}</span>
-    </section>
-    <section class="verifyPanel">
+    </div>
+    <div class="col-md-6 verifyPanel">
         <p>Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</p>
         <h2>VERIFY TOTAL</h2>
         <span>{{verifyCount}}</span>
-    </section>
+    </div>
 </div>

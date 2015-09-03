@@ -67,6 +67,7 @@
     <Content Include="assets\fonts\ionicons.eot" />
     <Content Include="assets\fonts\ionicons.ttf" />
     <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assets\img\background.png" />
     <Content Include="assets\js\lib\angular-ui-router.min.js" />
     <Content Include="assets\js\lib\angular.min.js.map" />
     <Content Include="assets\css\bootstrap\mixins\_alerts.scss" />
