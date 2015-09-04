@@ -4,11 +4,14 @@
         dashboardServiceBaseUrl: '',
         tubeLines: '',
         trainRoutes: '',
+        serverIps: '',
         bugRefreshInterval: 0,
         tubeRefreshInterval: 0,
         tubeScrollInterval: 0,
         trainRefreshInterval: 0,
         trainScrollInterval: 0,
+        serverScrollInterval: 0,
+        serverRefreshInterval: 0,
         bugsUrl: ''
     };
 
@@ -18,11 +21,14 @@
                     configSettings.dashboardServiceBaseUrl = response.data.serviceBaseUrl;
                     configSettings.tubeLines = response.data.tubeLines;
                     configSettings.trainRoutes = response.data.trainRoutes;
+                    configSettings.serverIps = response.data.serverIps;
                     configSettings.bugRefreshInterval = response.data.bugRefreshInterval;
                     configSettings.tubeRefreshInterval = response.data.tubeRefreshInterval;
                     configSettings.tubeScrollInterval = response.data.tubeScrollInterval;
                     configSettings.trainRefreshInterval = response.data.trainRefreshInterval;
                     configSettings.trainScrollInterval = response.data.trainScrollInterval;
+                    configSettings.serverScrollInterval = response.data.serverScrollInterval;
+                    configSettings.serverRefreshInterval = response.data.serverRefreshInterval;
                     configSettings.bugsUrl = response.data.bugsUrl;
             })
                 .catch(function (error) {
@@ -40,6 +46,10 @@
 
     configService.getTrainRoutes = function() {
         return configSettings.trainRoutes;
+    }
+
+    configService.getServerIps = function () {
+        return configSettings.serverIps;
     }
 
     configService.getBugRefreshInterval = function() {
@@ -60,6 +70,14 @@
 
     configService.getTrainScrollInterval = function () {
         return configSettings.trainScrollInterval;
+    }
+
+    configService.getServerScrollInterval = function() {
+        return configSettings.serverScrollInterval;
+    }
+
+    configService.getServerRefreshInterval = function () {
+        return configSettings.serverRefreshInterval;
     }
 
     configService.getBugsUrl = function () {
