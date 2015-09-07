@@ -1,3 +1,11 @@
 ﻿<div ng-controller="ServerCtrl">
     <h2>Servers</h2>
+    
+    <carousel interval="serverScrollInterval">
+        <slide ng-repeat="stat in serverStats">
+            <div class ="col-md-6">
+                TEST
+            </div>
+        </slide>
+    </carousel>
 </div>
