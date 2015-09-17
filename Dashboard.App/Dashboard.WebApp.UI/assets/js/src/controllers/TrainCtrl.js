@@ -5,27 +5,40 @@
     $scope.departureTimes = [];
     var trainRefreshInterval = ConfigService.getTrainRefreshInterval();
 
+    function Route(from, to) {
+        this.from = from;
+        this.to = to;
+        this.departures = '';
+    };
+
     for (var i = 0; i < routes.length; i += 2) {
-        var departureTime = { fromA: routes[i].from, toA: routes[i].to, departuresA: '', fromB: '', toB: '', departuresB: '', secondRouteVisibility: '' };
+        var routeA = new Route(routes[i].from, routes[i].to);
+        var routeB = new Route('', '');
 
         if (i + 1 < routes.length) {
-            departureTime.fromB = routes[i + 1].from;
-            departureTime.toB = routes[i + 1].to;
+            routeB.from = routes[i + 1].from;
+            routeB.to = routes[i + 1].to;
         }
 
-        $scope.departureTimes.push(departureTime);
+        var twoRoutes = {
+            routeA: routeA,
+            routeB: routeB,
+            secondRouteVisibility: ''
+        };
+
+        $scope.departureTimes.push(twoRoutes);
     }
 
     var getDepartures = function () {
         angular.forEach($scope.departureTimes, function (value, key) {
-            var statuses = TrainService.getDepartures(value.fromA, value.toA, value.fromB, value.toB);
+            var statuses = TrainService.getDepartures(value.routeA.from, value.routeA.to, value.routeB.from, value.routeB.to);
             statuses.then(function (result) {
-                if (value.toB === '' && value.fromB === '') {
-                    value.departuresA = result.TrainServices;
+                if (value.routeB.to === '' && value.routeB.from === '') {
+                    value.routeA.departures = result.TrainServices;
                     value.secondRouteVisibility = "hidden";
                 } else {
-                    value.departuresA = result[0].TrainServices;
-                    value.departuresB = result[1].TrainServices;
+                    value.routeA.departures = result[0].TrainServices;
+                    value.routeB.departures = result[1].TrainServices;
                     value.secondRouteVisibility = "visible";
                 }
             });

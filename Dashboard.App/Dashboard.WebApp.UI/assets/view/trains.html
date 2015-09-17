@@ -7,7 +7,7 @@
     <carousel interval="trainScrollInterval">
         <slide ng-repeat="time in departureTimes">
             <div class="route col-md-6">
-                <span>{{time.fromA}} to {{time.toA}}</span>
+                <span>{{time.routeA.from}} to {{time.routeA.to}}</span>
                 <table class="table table-condensed">
                     <thead>
                         <tr>
@@ -18,7 +18,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="d in time.departuresA">
+                        <tr ng-repeat="d in time.routeA.departures">
                             <td>{{d.ScheduledTime}}</td>
                             <td>{{d.Name}}</td>
                             <td>{{d.ExpectedTime}}</td>
@@ -28,7 +28,7 @@
                 </table>
             </div>
             <div class="route col-md-6" ng-style="{'visibility': time.secondRouteVisibility}">
-                <span>{{time.fromB}} to {{time.toB}}</span>
+                <span>{{time.routeB.from}} to {{time.routeB.to}}</span>
                 <table class="table table-condensed">
                     <thead>
                         <tr>
@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="d in time.departuresB">
+                        <tr ng-repeat="d in time.routeB.departures">
                             <td>{{d.ScheduledTime}}</td>
                             <td>{{d.Name}}</td>
                             <td>{{d.ExpectedTime}}</td>
