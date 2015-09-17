@@ -5713,4 +5713,10 @@ body {
 .dashboard-panel {
   background: linear-gradient(to bottom, #333 0%, #444 22%, #444 100%); }
 
+.server-card {
+  border: 1px solid white;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px; }
+
 /*# sourceMappingURL=main.css.map */

@@ -13,6 +13,7 @@
         this.diskUsage = '';
         this.drives = [];
         this.memoryInfo = '';
+        this.visibility = '';
     };
 
     for (var i = 0; i < ips.length; i += 4) {
@@ -31,43 +32,29 @@
             serverStatD.ip = ips[i + 3];
         }
 
-        var fourServerStats = {
-            serverStatA: serverStatA,
-            serverStatB: serverStatB,
-            serverStatC: serverStatC,
-            serverStatD: serverStatD
-        };
+        var innerArray = [];
 
-        $scope.serverStats.push(fourServerStats);
+        innerArray.push(serverStatA);
+        innerArray.push(serverStatB);
+        innerArray.push(serverStatC);
+        innerArray.push(serverStatD);
+
+        $scope.serverStats.push(innerArray);
     }
 
     var getStats = function() {
-        angular.forEach($scope.serverStats, function(value, key) {
-            var statsA = ServerService.getStats(value.serverStatA.ip);
-            statsA.then(function(result) {
-                populateServerStatProperties(value.serverStatA, result);
+        angular.forEach($scope.serverStats, function (value, key) {
+            angular.forEach(value, function(innerValue, innerKey) {
+                if (innerValue.ip !== '') {
+                    var stats = ServerService.getStats(innerValue.ip);
+                    stats.then(function(result) {
+                        populateServerStatProperties(innerValue, result);
+                        innerValue.visibility = 'visible';
+                    });
+                } else {
+                    innerValue.visibility = 'hidden';
+                }
             });
-
-            if (value.serverStatB.ip !== '') {
-                var statsB = ServerService.getStats(value.serverStatB.ip);
-                statsB.then(function (result) {
-                    populateServerStatProperties(value.serverStatB, result);
-                });
-            }
-
-            if (value.serverStatC.ip !== '') {
-                var statsC = ServerService.getStats(value.serverStatC.ip);
-                statsC.then(function (result) {
-                    populateServerStatProperties(value.serverStatC, result);
-                });
-            }
-
-            if (value.serverStatD.ip !== '') {
-                var statsD = ServerService.getStats(value.serverStatD.ip);
-                statsD.then(function (result) {
-                    populateServerStatProperties(value.serverStatD, result);
-                });
-            }
         });
         $scope.lastUpdated = new Date();
     };

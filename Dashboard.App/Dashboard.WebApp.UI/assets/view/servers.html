@@ -2,9 +2,14 @@
     <h2>Servers</h2>
     
     <carousel interval="serverScrollInterval">
-        <slide ng-repeat="stat in serverStats">
-            <div class ="col-md-6">
-                TEST
+        <slide ng-repeat="innerArray in serverStats">
+            <div ng-repeat="stat in innerArray">
+                <div class="col-md-6" ng-style="{'visibility': stat.visibility}">
+                    <div class="server-card">
+                        <span>{{stat.description}}</span>
+                        <span>{{stat.ip}}</span>
+                    </div>
+                </div>
             </div>
         </slide>
     </carousel>
