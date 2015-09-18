@@ -5719,4 +5719,13 @@ body {
   margin-left: 2px;
   margin-right: 2px; }
 
+.progress-arc-panel span {
+  display: block; }
+.progress-arc-panel progress-arc {
+  display: block; }
+.progress-arc-panel #displayNbr {
+  margin-top: -75px;
+  margin-bottom: 40px;
+  font-size: 30px; }
+
 /*# sourceMappingURL=main.css.map */

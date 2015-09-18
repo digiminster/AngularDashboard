@@ -1,6 +1,7 @@
 angular.module('dashboardApp', [
     'ui.bootstrap', 
-    'ui.router'
+    'ui.router',
+    'angular-progress-arc'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

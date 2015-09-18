@@ -9,10 +9,21 @@
         this.ip = ipAddr;
         this.computerName = '';
         this.description = '';
+
+        this.cpuLabel = 'CPU';
+        this.cpuDisplayNbr = '';
         this.cpu = '';
+
         this.diskUsage = '';
+        this.diskUsageLabel = 'Disk';
+        this.diskUsageDisplayNbr = '';
+
         this.drives = [];
+
+        this.memoryInfoLabel = 'Memory';
         this.memoryInfo = '';
+        this.memoryInfoDisplayNbr = '';
+
         this.visibility = '';
     };
 
@@ -62,10 +73,17 @@
     function populateServerStatProperties(serverStat, result) {
         serverStat.computerName = result.ComputerName;
         serverStat.description = result.Description;
-        serverStat.cpu = result.CPU;
-        serverStat.diskUsage = result.DiskUsage;
+
+        serverStat.cpu = result.CPU / 100;
+        serverStat.cpuDisplayNbr = result.CPU;
+
+        serverStat.diskUsage = result.DiskUsage / 100;
+        serverStat.diskUsageDisplayNbr = result.DiskUsage;
+
         serverStat.drives = result.Drives;
-        serverStat.memoryInfo = result.MemoryInfo;
+
+        serverStat.memoryInfo = result.MemoryInfo / 100;
+        serverStat.memoryInfoDisplayNbr = result.MemoryInfo;
     } 
 
     getStats();

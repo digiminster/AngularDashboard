@@ -1,6 +1,5 @@
 ﻿<div ng-controller="ServerCtrl">
     <h2>Servers</h2>
-    
     <carousel interval="serverScrollInterval">
         <slide ng-repeat="innerArray in serverStats">
             <div ng-repeat="stat in innerArray">
@@ -8,6 +7,19 @@
                     <div class="server-card">
                         <span>{{stat.description}}</span>
                         <span>{{stat.ip}}</span>
+                        <div>
+                            <div class="progress-arc-panel col-md-4">
+                                <span>{{stat.cpuLabel}}</span>
+                                <progress-arc complete="stat.cpu" background="grey" stroke="yellow" size="80" stroke-width="8"></progress-arc>
+                                <span id="displayNbr">{{stat.cpuDisplayNbr}}</span>
+                            </div>
+                            <div class="progress-arc-panel col-md-4">
+                                <span>{{stat.diskUsageLabel}}</span>
+                                <progress-arc complete="stat.diskUsage" background="grey" stroke="yellow" size="80" stroke-width="8"></progress-arc>
+                                <span id="displayNbr">{{stat.diskUsageDisplayNbr}}</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
             </div>
