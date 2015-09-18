@@ -1,25 +1,39 @@
 ﻿<div ng-controller="ServerCtrl">
-    <h2>Servers</h2>
+    <div class="small-header servers">
+        <span class="header">Servers</span>
+    </div>
     <carousel interval="serverScrollInterval">
         <slide ng-repeat="innerArray in serverStats">
             <div ng-repeat="stat in innerArray">
                 <div class="col-md-6" ng-style="{'visibility': stat.visibility}">
-                    <div class="server-card">
-                        <span>{{stat.description}}</span>
+                    <div class="server-card dashboard-panel">
+                        <span class="description">{{stat.description}}</span>
                         <span>{{stat.ip}}</span>
                         <div>
                             <div class="progress-arc-panel col-md-4">
                                 <span>{{stat.cpuLabel}}</span>
-                                <progress-arc complete="stat.cpu" background="grey" stroke="yellow" size="80" stroke-width="8"></progress-arc>
+                                <progress-arc complete="stat.cpu" background={{circleBackground}} stroke={{bigCircleStroke}} size={{bigCircleSize}} stroke-width={{bigCircleWidth}}></progress-arc>
                                 <span id="displayNbr">{{stat.cpuDisplayNbr}}</span>
                             </div>
                             <div class="progress-arc-panel col-md-4">
                                 <span>{{stat.diskUsageLabel}}</span>
-                                <progress-arc complete="stat.diskUsage" background="grey" stroke="yellow" size="80" stroke-width="8"></progress-arc>
+                                <progress-arc complete="stat.diskUsage" background={{circleBackground}} stroke={{bigCircleStroke}} size={{bigCircleSize}} stroke-width={{bigCircleWidth}}></progress-arc>
                                 <span id="displayNbr">{{stat.diskUsageDisplayNbr}}</span>
                             </div>
-                            <div class="clearfix"></div>
+                            <div class="progress-arc-panel col-md-4">
+                                <span>{{stat.memoryInfoLabel}}</span>
+                                <progress-arc complete="stat.memoryInfo" background={{circleBackground}} stroke={{bigCircleStroke}} size={{bigCircleSize}} stroke-width={{bigCircleWidth}}></progress-arc>
+                                <span id="displayNbr">{{stat.memoryInfoDisplayNbr}}</span>
+                            </div>
                         </div>
+                        <span>Drives</span>
+                        <div ng-repeat="drive in stat.drives">
+                            <div class="progress-arc-panel col-md-4">
+                                <progress-arc complete="drive.InUsePercentage" background={{circleBackground}} stroke={{smallCircleStroke}} size={{smallCircleSize}} stroke-width={{smallCircleWidth}}></progress-arc>
+                                <span id="driveLetter">{{drive.DriveLetter}}</span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>

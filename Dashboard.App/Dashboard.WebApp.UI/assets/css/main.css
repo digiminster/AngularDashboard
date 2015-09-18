@@ -5664,6 +5664,9 @@ body {
     font-size: 12px;
     padding-top: 3px; }
 
+.servers {
+  padding-bottom: 20px; }
+
 .container-max {
   width: 100%; }
 
@@ -5715,17 +5718,19 @@ body {
 
 .server-card {
   border: 1px solid white;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px; }
+  margin-bottom: 5px; }
+  .server-card .description {
+    font-weight: bold; }
 
 .progress-arc-panel span {
   display: block; }
-.progress-arc-panel progress-arc {
-  display: block; }
 .progress-arc-panel #displayNbr {
-  margin-top: -75px;
-  margin-bottom: 40px;
-  font-size: 30px; }
+  margin-top: -60px;
+  margin-bottom: 30px;
+  font-size: 25px; }
+.progress-arc-panel #driveLetter {
+  margin-top: -50px;
+  margin-bottom: 30px;
+  font-size: 20px; }
 
 /*# sourceMappingURL=main.css.map */

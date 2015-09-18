@@ -1,9 +1,17 @@
 ﻿angular.module('dashboardApp').controller('ServerCtrl', function($scope, ServerService, $interval, ConfigService) {
 
     var ips = ConfigService.getServerIps();
+    var serverRefreshInterval = ConfigService.getServerRefreshInterval();
+
     $scope.serverScrollInterval = ConfigService.getServerScrollInterval();
     $scope.serverStats = [];
-    var serverRefreshInterval = ConfigService.getServerRefreshInterval();
+    $scope.circleBackground = 'grey';
+    $scope.bigCircleStroke = 'yellow';
+    $scope.smallCircleStroke = 'blue';
+    $scope.bigCircleSize = 70;
+    $scope.smallCircleSize = 60;
+    $scope.bigCircleWidth = 10;
+    $scope.smallCircleWidth = 9;
 
     function ServerStat(ipAddr) {
         this.ip = ipAddr;
@@ -82,8 +90,13 @@
 
         serverStat.drives = result.Drives;
 
-        serverStat.memoryInfo = result.MemoryInfo / 100;
-        serverStat.memoryInfoDisplayNbr = result.MemoryInfo;
+        angular.forEach(serverStat.drives, function (value, key) {
+            value.InUsePercentage = value.InUsePercentage / 100;
+            value.DriveLetter = value.DriveLetter.toUpperCase();
+        });
+
+        serverStat.memoryInfo = result.MemoryInfo.InUsePercentage / 100;
+        serverStat.memoryInfoDisplayNbr = result.MemoryInfo.InUsePercentage;
     } 
 
     getStats();
