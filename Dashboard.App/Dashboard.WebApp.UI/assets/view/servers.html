@@ -29,7 +29,7 @@
                         <span>Drives</span>
                         <div ng-repeat="drive in stat.drives">
                             <div class="progress-arc-panel col-md-4">
-                                <progress-arc complete="drive.InUsePercentage" background={{circleBackground}} stroke={{smallCircleStroke}} size={{smallCircleSize}} stroke-width={{smallCircleWidth}}></progress-arc>
+                                <progress-arc complete="drive.InUsePercentageDisplayNbr" background={{circleBackground}} stroke={{smallCircleStroke}} size={{smallCircleSize}} stroke-width={{smallCircleWidth}}></progress-arc>
                                 <span id="driveLetter">{{drive.DriveLetter}}</span>
                             </div>
                         </div>

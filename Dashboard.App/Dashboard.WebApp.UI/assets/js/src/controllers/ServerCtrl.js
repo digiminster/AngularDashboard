@@ -91,7 +91,7 @@
         serverStat.drives = result.Drives;
 
         angular.forEach(serverStat.drives, function (value, key) {
-            value.InUsePercentage = value.InUsePercentage / 100;
+            value.InUsePercentageDisplayNbr = value.InUsePercentage / 100;
             value.DriveLetter = value.DriveLetter.toUpperCase();
         });
 
