@@ -1,6 +1,7 @@
 ﻿<div ng-controller="ServerCtrl">
     <div class="small-header servers">
-        <span class="header">Servers</span>
+        <span class="col-md-7 header">Servers</span>
+        <span class="col-md-5 last-updated">Last updated: {{lastUpdated | date:'dd/MM/yyyy HH:mm:ss'}}</span>
     </div>
     <carousel interval="serverScrollInterval">
         <slide ng-repeat="innerArray in serverStats">

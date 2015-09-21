@@ -5665,7 +5665,8 @@ body {
     padding-top: 3px; }
 
 .servers {
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  padding-top: 5px; }
 
 .container-max {
   width: 100%; }
