@@ -12,7 +12,10 @@
         trainScrollInterval: 0,
         serverScrollInterval: 0,
         serverRefreshInterval: 0,
-        bugsUrl: ''
+        projectsRefreshInterval: 0,
+        bugsUrl: '',
+        projectsUrl: '',
+        projects: ''
     };
 
     configService.loadFile = function () {
@@ -29,8 +32,12 @@
                     configSettings.trainScrollInterval = response.data.trainScrollInterval;
                     configSettings.serverScrollInterval = response.data.serverScrollInterval;
                     configSettings.serverRefreshInterval = response.data.serverRefreshInterval;
+                    configSettings.projectsRefreshInterval = response.data.projectsRefreshInterval;
                     configSettings.bugsUrl = response.data.bugsUrl;
-            })
+                    configSettings.projectsUrl = response.data.projectsUrl;
+                    configSettings.projects = response.data.projects;
+
+                })
                 .catch(function (error) {
                     console.log("Could not load config file.");
                 });
@@ -40,11 +47,11 @@
         return configSettings.dashboardServiceBaseUrl;
     }
 
-    configService.getTubeLines = function() {
+    configService.getTubeLines = function () {
         return configSettings.tubeLines;
     }
 
-    configService.getTrainRoutes = function() {
+    configService.getTrainRoutes = function () {
         return configSettings.trainRoutes;
     }
 
@@ -52,11 +59,11 @@
         return configSettings.serverIps;
     }
 
-    configService.getBugRefreshInterval = function() {
+    configService.getBugRefreshInterval = function () {
         return configSettings.bugRefreshInterval;
     }
 
-    configService.getTubeRefreshInterval = function() {
+    configService.getTubeRefreshInterval = function () {
         return configSettings.tubeRefreshInterval;
     }
 
@@ -72,7 +79,7 @@
         return configSettings.trainScrollInterval;
     }
 
-    configService.getServerScrollInterval = function() {
+    configService.getServerScrollInterval = function () {
         return configSettings.serverScrollInterval;
     }
 
@@ -80,8 +87,20 @@
         return configSettings.serverRefreshInterval;
     }
 
+    configService.getProjectsRefreshInterval = function () {
+        return configSettings.projectsRefreshInterval;
+    }
+
     configService.getBugsUrl = function () {
         return configSettings.bugsUrl;
+    }
+
+    configService.getProjectsUrl = function () {
+        return configSettings.projectsUrl;
+    }
+
+    configService.getProjects = function () {
+        return configSettings.projects;
     }
 
     return configService;

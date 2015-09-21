@@ -1,14 +1,9 @@
 ﻿<div class="starter-template">
     <div class="row">
         <div class="col-md-6 full-column">
-            <section id="projects">
-                <div ng-controller="ProjectsCtrl">
-                    <h2>Projects</h2>
-                    <ul>
-                        <li ng-repeat="i in projects">TEST</li>
-                    </ul>
-                </div>
-            </section>
+            <div width="600" height="600">
+                <section id="projects" ng-include="'assets/view/projects.html'"></section>
+            </div>
             <section>
                 <div id="bugs" ng-include="'assets/view/bugs.html'"></div>
             </section>
