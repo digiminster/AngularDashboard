@@ -48,6 +48,10 @@
         return configSettings.data.trainScrollInterval;
     }
 
+    configService.getTrainsPerSlide = function () {
+        return configSettings.data.trainsPerSlide;
+    }
+
     configService.getServerScrollInterval = function() {
         return configSettings.data.serverScrollInterval;
     }

@@ -1,4 +1,4 @@
-﻿angular.module('dashboardApp').controller('ServerCtrl', function($scope, ServerService, $interval, ConfigService) {
+﻿angular.module('dashboardApp').controller('ServerCtrl', function ($scope, ServerService, $interval, ConfigService) {
 
     var ips = ConfigService.getServerIps();
     var serverRefreshInterval = ConfigService.getServerRefreshInterval();
@@ -13,25 +13,20 @@
     $scope.bigCircleWidth = 10;
     $scope.smallCircleWidth = 9;
 
-    var getStats = function() {
+    var getStats = function () {
         angular.forEach($scope.serverStats, function (value, key) {
-            angular.forEach(value, function(innerValue, innerKey) {
-                if (innerValue.ip !== '') {
-                    var stats = ServerService.getStats(innerValue.ip);
-                    stats.then(function(result) {
-                        ServerService.populateServerStatProperties(innerValue, result);
-                        innerValue.visibility = 'visible';
-                    });
-                } else {
-                    innerValue.visibility = 'hidden';
-                }
+            angular.forEach(value, function (innerValue, innerKey) {
+                var stats = ServerService.getStats(innerValue.ip);
+                stats.then(function (result) {
+                    ServerService.populateServerStatProperties(innerValue, result);
+                });
             });
         });
         $scope.lastUpdated = new Date();
     };
 
     getStats();
-    $interval(function() {
+    $interval(function () {
         getStats();
     }, serverRefreshInterval, 0, true);
 });

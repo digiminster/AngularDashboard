@@ -16,6 +16,7 @@
     "tubeScrollInterval": 5000,
     "trainRefreshInterval": 60000,
     "trainScrollInterval": 5000,
+    "trainsPerSlide": 2,
     "serverScrollInterval": 10000,
     "serverRefreshInterval": 120000,
     "serversPerSlide": 4,
