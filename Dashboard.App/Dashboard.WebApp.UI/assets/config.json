@@ -11,12 +11,12 @@
         { "from": "EDB", "to": "GLQ" }
     ],
     "serverIps": [ "10.201.53.57", "10.201.53.58", "10.201.54.54", "10.201.54.55", "10.201.55.55", "10.201.53.25" ],
-    "bugRefreshInterval": 10000,
-    "tubeRefreshInterval": 60000,
+    "bugRefreshInterval": 60000,
+    "tubeRefreshInterval": 120000,
     "tubeScrollInterval": 5000,
     "trainRefreshInterval": 60000,
     "trainScrollInterval": 5000,
     "serverScrollInterval": 10000,
-    "serverRefreshInterval": 60000,
+    "serverRefreshInterval": 120000,
     "bugsUrl": "bugverifycount/Rapid%20Apps"
 }
