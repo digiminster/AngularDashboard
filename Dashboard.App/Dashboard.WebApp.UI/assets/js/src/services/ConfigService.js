@@ -56,6 +56,10 @@
         return configSettings.data.serverRefreshInterval;
     }
 
+    configService.getServersPerSlide = function () {
+        return configSettings.data.serversPerSlide;
+    }
+
     configService.getBugsUrl = function () {
         return configSettings.data.bugsUrl;
     }
