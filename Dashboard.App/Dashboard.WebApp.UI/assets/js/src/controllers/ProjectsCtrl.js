@@ -45,8 +45,8 @@
                     var project = ProjectService.getProject(encodeURIComponent(value.name));
                     project.then(function (result) {
                         var projectBuilds = [];  
-                        angular.forEach(result.Builds, function (innerValue, innerKey) {
-                            projectBuilds.push(innerValue);
+                        angular.forEach(result.Builds, function (dataValue, innerKey) {
+                            projectBuilds.push(dataValue);
                         });
                         value.builds = projectBuilds;
                          value.visibility = 'visible';
