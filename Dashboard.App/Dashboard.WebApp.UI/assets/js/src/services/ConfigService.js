@@ -15,7 +15,8 @@
         projectsRefreshInterval: 0,
         bugsUrl: '',
         projectsUrl: '',
-        projects: ''
+        projects: '',
+        projectScrollInterval: 0
     };
 
     configService.loadFile = function () {
@@ -35,6 +36,7 @@
                     configSettings.projectsRefreshInterval = response.data.projectsRefreshInterval;
                     configSettings.bugsUrl = response.data.bugsUrl;
                     configSettings.projectsUrl = response.data.projectsUrl;
+                    configSettings.projectScrollInterval = response.data.projectScrollInterval;
                     configSettings.projects = response.data.projects;
 
                 })
@@ -103,5 +105,8 @@
         return configSettings.projects;
     }
 
+    configService.getProjectScrollInterval = function () {
+        return configSettings.projectScrollInterval;
+    }
     return configService;
 });

@@ -7,11 +7,13 @@
                 .then(function (response) {
                     return response.data;
                 }).catch(function (error) {
-                    console.log("Error getting broken builds.");
+                    console.log("Error getting builds.");
                     return -1;
                 });
         }
         return null;
     }
+
+
     return projectsService;
 });

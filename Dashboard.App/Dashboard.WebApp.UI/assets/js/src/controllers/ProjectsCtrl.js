@@ -1,36 +1,69 @@
 ﻿angular.module('dashboardApp').controller('ProjectCtrl', function ($scope, ProjectService, ConfigService, $interval) {
-    $scope.projects = ConfigService.getProjects();
-    $scope.brokenBuilds = [];
-    $scope.successBuilds = [];
-    $scope.totalFailed = 0;
-    $scope.totalSucceed = 0;
-    var projectRefreshInterval = ConfigService.getProjectsRefreshInterval();
+    var projectList = ConfigService.getProjects();
 
-    /*we have to look at each project because the ones we are interested in are not necessarily the same set as the 
-     *set of all projects that have > 0 broken builds, so we always have to iterate the full set of projects-of-interest*/
-    var refreshBrokenBuilds = function () {
-        angular.forEach($scope.projects, function (value, key) {
-            var project = ProjectService.getProject(encodeURIComponent(value.name));
-            project.then(function (result) {
-                console.log('ProjectCtrl');
-                //get project's builds and iterate looking for any broken ones, passing these to an array
-                angular.forEach(result.Builds, function (innerValue, innerKey) {
-                    if (innerValue.Status == "FAILURE" || innerValue.status == "ERROR") {
-                        $scope.brokenBuilds.push(innerValue);
-                    }
-                    if (innerValue.Status == "SUCCESS") {
-                        $scope.successBuilds.push(innerValue);
-                    }
-                });
-            });
-        });
-        $scope.lastUpdated = new Date();
-      //  $scope.totalFailed = brokenBuilds.length;
-      //  $scope.totalSucceed = successBuilds.length;
+    var projectRefreshInterval = ConfigService.getProjectsRefreshInterval();
+    $scope.projectScrollInterval = ConfigService.getProjectScrollInterval();
+
+    $scope.projectDataList = [];
+
+    function projectData(projectName) {
+        this.projectName = projectName;
+        this.builds = [];
     };
 
-    refreshBrokenBuilds();
+    for (var i = 0; i < projectList.length; i += 4) {
+        var projectA = new projectData(projectList[i]);
+        var projectB = new projectData('');
+        var projectC = new projectData('');
+        var projectD = new projectData('');
+
+        if (i + 1 < projectList.length) {
+            projectB.projectName = projectList[i + 1];
+        }
+        if (i + 2 < projectList.length) {
+            projectC.projectName = projectList[i + 2];
+        }
+        if (i + 3 < projectList.length) {
+            projectD.projectName = projectList[i + 3];
+        }
+
+        var innerArray = [];
+
+        innerArray.push(projectA);
+        innerArray.push(projectB);
+        innerArray.push(projectC);
+        innerArray.push(projectD);
+        $scope.projectDataList.push(innerArray);
+        console.log($scope.projectDataList);
+    }
+
+
+    var getData = function () {
+        angular.forEach(projectList, function (value, key) {
+            angular.forEach(value, function (innerValue, innerKey) {
+                if (value.projectName !== '') {
+                    var project = ProjectService.getProject(encodeURIComponent(value.name));
+                    project.then(function (result) {
+                        var projectBuilds = [];  
+                        angular.forEach(result.Builds, function (innerValue, innerKey) {
+                            projectBuilds.push(innerValue);
+                        });
+                        value.builds = projectBuilds;
+                         value.visibility = 'visible';
+                    });
+                } else {
+                    value.visibility = 'hidden';
+                }
+            });
+
+        });
+
+
+        $scope.lastUpdated = new Date();
+    };
+
+    getData();
     $interval(function () {
-        refreshBrokenBuilds();
+        getData();
     }, projectRefreshInterval, 0, true);
 });

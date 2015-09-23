@@ -1,29 +1,26 @@
 ﻿<div ng-controller="ProjectCtrl" class="dashboard-panel">
-    <div class="col-md-6 bugPanel">
-        <h2>Project Summary</h2>
-        <p>
-            Total Broken Build: <br/>
-            Total Broken Build:  <br/>
-        </p> 
-
-        <h2>Failed Build List</h2>
-        <table class="table table-condensed">
-            <tr ng-repeat="build in brokenBuilds">
-                <td>{{build.Name}}</td>
-                <td>{{build.Status}}</td>
-                <td>{{build.StatusDate}}</td>
-                <td>{{build.User}}</td>
-            </tr>
-        </table>
-        <h2>Success Build</h2>
-        <table class="table table-condensed">
-            <tr ng-repeat="secbuild in successBuilds">
-                <td>{{secbuild.Name}}</td>
-                <td>{{secbuild.Status}}</td>
-                <td>{{secbuild.StatusDate}}</td>
-                <td>{{secbuild.User}}</td>
-            </tr>
-        </table>
-
+    <div class="small-header">
+        <span class="col-md-12 header">Project Build Information</span>
     </div>
+    <div class="clearfix">
+    </div>
+    <carousel interval="projectScrollInterval"  >
+        <slide ng-repeat=" proj in projectDataList ">
+            <div ng-repeat="array in proj">
+                <div>
+                    <div  class="server-card" style=" float:left; width:400px;height:300px; overflow:scroll; ">
+                        <h1>{{array.projectName.name}}</h1>
+                        <div ng-repeat="build in array.projectName.builds">
+                            <div>
+                                <p>{{build.Name}}</></p>
+                                <p>{{build.Status}}</p><p> {{build.StatusDate}}</p>
+                        </div>
+                    </div>
+                </div>
+      
+            </div>
+          </div>
+        </slide>
+    </carousel>
+    
 </div>
