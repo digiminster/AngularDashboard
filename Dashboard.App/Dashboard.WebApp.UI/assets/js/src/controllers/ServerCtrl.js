@@ -1,75 +1,32 @@
-﻿angular.module('dashboardApp').controller('ServerCtrl', function($scope, ServerService, $interval, ConfigService) {
+﻿angular.module('dashboardApp').controller('ServerCtrl', function ($scope, ServerService, $interval, ConfigService) {
 
     var ips = ConfigService.getServerIps();
-    $scope.serverScrollInterval = ConfigService.getServerScrollInterval();
-    $scope.serverStats = [];
     var serverRefreshInterval = ConfigService.getServerRefreshInterval();
 
-    function ServerStat(ipAddr) {
-        this.ip = ipAddr;
-        this.computerName = '';
-        this.description = '';
-        this.cpu = '';
-        this.diskUsage = '';
-        this.drives = [];
-        this.memoryInfo = '';
-        this.visibility = '';
-    };
+    $scope.serverScrollInterval = ConfigService.getServerScrollInterval();
+    $scope.serverStats = ServerService.createStatsArray(ips, ConfigService.getServersPerSlide());
+    $scope.circleBackground = 'grey';
+    $scope.bigCircleStroke = 'yellow';
+    $scope.smallCircleStroke = 'blue';
+    $scope.bigCircleSize = 70;
+    $scope.smallCircleSize = 60;
+    $scope.bigCircleWidth = 10;
+    $scope.smallCircleWidth = 9;
 
-    for (var i = 0; i < ips.length; i += 4) {
-        var serverStatA = new ServerStat(ips[i]);
-        var serverStatB = new ServerStat('');
-        var serverStatC = new ServerStat('');
-        var serverStatD = new ServerStat('');
-
-        if (i + 1 < ips.length) {
-            serverStatB.ip = ips[i + 1];
-        }
-        if (i + 2 < ips.length) {
-            serverStatC.ip = ips[i + 2];
-        }
-        if (i + 3 < ips.length) {
-            serverStatD.ip = ips[i + 3];
-        }
-
-        var innerArray = [];
-
-        innerArray.push(serverStatA);
-        innerArray.push(serverStatB);
-        innerArray.push(serverStatC);
-        innerArray.push(serverStatD);
-
-        $scope.serverStats.push(innerArray);
-    }
-
-    var getStats = function() {
+    var getStats = function () {
         angular.forEach($scope.serverStats, function (value, key) {
-            angular.forEach(value, function(innerValue, innerKey) {
-                if (innerValue.ip !== '') {
-                    var stats = ServerService.getStats(innerValue.ip);
-                    stats.then(function(result) {
-                        populateServerStatProperties(innerValue, result);
-                        innerValue.visibility = 'visible';
-                    });
-                } else {
-                    innerValue.visibility = 'hidden';
-                }
+            angular.forEach(value, function (innerValue, innerKey) {
+                var stats = ServerService.getStats(innerValue.ip);
+                stats.then(function (result) {
+                    ServerService.populateServerStatProperties(innerValue, result);
+                });
             });
         });
         $scope.lastUpdated = new Date();
     };
 
-    function populateServerStatProperties(serverStat, result) {
-        serverStat.computerName = result.ComputerName;
-        serverStat.description = result.Description;
-        serverStat.cpu = result.CPU;
-        serverStat.diskUsage = result.DiskUsage;
-        serverStat.drives = result.Drives;
-        serverStat.memoryInfo = result.MemoryInfo;
-    } 
-
     getStats();
-    $interval(function() {
+    $interval(function () {
         getStats();
     }, serverRefreshInterval, 0, true);
 });

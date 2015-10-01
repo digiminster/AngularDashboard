@@ -5,48 +5,29 @@
         <div class="clearfix"></div>
     </div>
     <carousel interval="trainScrollInterval">
-        <slide ng-repeat="time in departureTimes">
-            <div class="route col-md-6">
-                <span>{{time.routeA.from}} to {{time.routeA.to}}</span>
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Destination</th>
-                            <th>Status</th>
-                            <th>Platform</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="d in time.routeA.departures">
-                            <td>{{d.ScheduledTime}}</td>
-                            <td>{{d.Name}}</td>
-                            <td>{{d.ExpectedTime}}</td>
-                            <td>{{d.Platform}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="route col-md-6" ng-style="{'visibility': time.secondRouteVisibility}">
-                <span>{{time.routeB.from}} to {{time.routeB.to}}</span>
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Destination</th>
-                            <th>Status</th>
-                            <th>Platform</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="d in time.routeB.departures">
-                            <td>{{d.ScheduledTime}}</td>
-                            <td>{{d.Name}}</td>
-                            <td>{{d.ExpectedTime}}</td>
-                            <td>{{d.Platform}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <slide ng-repeat="innerArray in departureTimes">
+            <div ng-repeat="route in innerArray">
+                <div class="route col-md-6">
+                    <span>{{route.from}} to {{route.to}}</span>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in route.departures">
+                                <td>{{d.ScheduledTime}}</td>
+                                <td>{{d.Name}}</td>
+                                <td>{{d.ExpectedTime}}</td>
+                                <td>{{d.Platform}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </slide>
     </carousel>
