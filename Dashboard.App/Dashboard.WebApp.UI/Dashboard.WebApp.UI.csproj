@@ -58,7 +58,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\css\addtohomescreen.css" />
     <Content Include="assets\css\main.scss" />
     <Content Include="assets\css\_constants.scss" />
     <Content Include="assets\css\_main.scss" />
@@ -370,19 +369,7 @@
       <DependentUpon>main.scss</DependentUpon>
     </Content>
     <Content Include="assets\img\ajax-loader.gif" />
-    <Content Include="assets\img\iOS\apple-touch-icon-114x114.png" />
-    <Content Include="assets\img\iOS\apple-touch-icon-144x144.png" />
-    <Content Include="assets\img\iOS\apple-touch-icon-57x57.png" />
-    <Content Include="assets\img\iOS\apple-touch-icon-72x72.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-1496x2048.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-1536x2008.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-320x460.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-640x1096.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-640x920.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-748x1024.png" />
-    <Content Include="assets\img\iOS\apple-touch-startup-image-768x1004.png" />
     <Content Include="assets\img\logo.png" />
-    <Content Include="assets\js\lib\addtohomescreen.min.js" />
     <Content Include="assets\js\lib\angular.min.js" />
     <Content Include="assets\js\lib\fastclick.js" />
     <Content Include="assets\js\lib\ui-bootstrap-tpls-0.12.1.min.js" />
