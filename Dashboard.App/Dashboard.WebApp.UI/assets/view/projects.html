@@ -8,18 +8,23 @@
         <slide ng-repeat=" proj in projectDataList ">
             <div ng-repeat="array in proj">
                 <div>
-                    <div  class="server-card" style=" float:left; width:400px;height:300px; overflow:scroll; ">
-                        <h1>{{array.projectName.name}}</h1>
-                        <div ng-repeat="build in array.projectName.builds">
-                            <div>
-                                <p>{{build.Name}}</></p>
-                                <p>{{build.Status}}</p><p> {{build.StatusDate}}</p>
+                    <div  class="server-card" style=" float:left; width:400px;height:300px; ">
+                        <h3>{{array.projectName.name}}</h3>
+                        <div ng-repeat ="build in array.projectName.builds">
+                            <div ng-switch="build.Status">
+                                <div ng-switch-when="SUCCESS" style="background-image:url('/assets/img/successbackground.png'); width:400px; height:50px">
+                                    <span> {{build.Name}} </></span> <span> | {{build.Status}} | {{build.StatusDate |DateFrom}} </span>
+                                </div>
+                                <div ng-switch-when="ERROR" style="background-image:url('/assets/img/failurebackground.png'); width:400px; height:50px">
+                                    <span> {{build.Name}} </></span> <span> {{build.Status}} | <script> moment('{{build.StatusDate }}', "YYYYMMDD").fromNow()</script>| {{build.StatusDate |DateFrom}} </span>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
       
             </div>
-          </div>
         </slide>
     </carousel>
     

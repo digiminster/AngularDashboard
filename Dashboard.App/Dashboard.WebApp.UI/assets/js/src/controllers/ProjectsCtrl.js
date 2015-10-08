@@ -67,3 +67,9 @@
         getData();
     }, projectRefreshInterval, 0, true);
 });
+
+angular.module('dashboardApp').filter('DateFrom', function () {
+      return  function(input) {
+         moment(input, "YYYYMMDD").fromNow();
+    }
+});

@@ -372,6 +372,7 @@
     <Content Include="assets\img\logo.png" />
     <Content Include="assets\js\lib\angular.min.js" />
     <Content Include="assets\js\lib\fastclick.js" />
+    <Content Include="assets\js\lib\moment.js" />
     <Content Include="assets\js\lib\ui-bootstrap-tpls-0.12.1.min.js" />
     <Content Include="assets\js\src\controllers\ContactCtrl.js" />
     <Content Include="assets\js\src\controllers\FogbugzCtrl.js" />
