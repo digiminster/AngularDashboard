@@ -13,6 +13,7 @@
     $scope.bigCircleWidth = 10;
     $scope.smallCircleWidth = 9;
 
+    // TODO - looks like ServerService - can it go from here?
     function ServerStat(ipAddr) {
         this.ip = ipAddr;
         this.computerName = '';
@@ -32,9 +33,9 @@
         this.memoryInfo = '';
         this.memoryInfoDisplayNbr = '';
 
-        this.visibility = '';
     };
 
+    // TODO - can this go on the service?
     for (var i = 0; i < ips.length; i += 4) {
         var serverStatA = new ServerStat(ips[i]);
         var serverStatB = new ServerStat('');
@@ -78,6 +79,7 @@
         $scope.lastUpdated = new Date();
     };
 
+    // TODO: Looks like the service version... can it go from here?
     function populateServerStatProperties(serverStat, result) {
         serverStat.computerName = result.ComputerName;
         serverStat.description = result.Description;
