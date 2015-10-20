@@ -2,6 +2,7 @@
     var lines = ConfigService.getTubeLines();
     $scope.lineStatuses = TubeService.createLineArray(lines);
     $scope.tubeScrollInterval = ConfigService.getTubeScrollInterval();
+    var tubeRefreshInterval = ConfigService.getTubeRefreshInterval();
 
     var refreshLineStatuses = function() {
         angular.forEach($scope.lineStatuses, function (value, key) {
