@@ -12,6 +12,10 @@
                 });
     }
 
+    configService.getServersPerSlide = function () {
+        return configSettings.data.serversPerSlide;
+    }
+
     configService.getDashboardServiceBaseUrl = function () {
          return configSettings.data.serviceBaseUrl;
     }

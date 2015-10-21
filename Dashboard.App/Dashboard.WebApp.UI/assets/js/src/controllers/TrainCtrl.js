@@ -3,7 +3,6 @@
     var routes = ConfigService.getTrainRoutes();
     $scope.trainScrollInterval = ConfigService.getTrainScrollInterval();
 
-    // TODO - no such method as ConfigService.getTrainsPerSlide() - causing console error
     $scope.departureTimes = TrainService.createTrainArray(routes, ConfigService.getTrainsPerSlide());
     var trainRefreshInterval = ConfigService.getTrainRefreshInterval();
 
