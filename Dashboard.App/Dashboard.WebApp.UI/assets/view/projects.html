@@ -9,7 +9,7 @@
             <div ng-repeat="array in proj">
                 <div>
                     <div  class="server-card" style=" float:left; width:400px;height:300px; ">
-                        <h3>{{array.projectName.name}}</h3>
+                        <h3>{{array.projectName.name | FormatName}}</h3> 
                         <div ng-repeat ="build in array.projectName.builds">
                             <div ng-switch="build.Status">
                                 <div ng-switch-when="SUCCESS" style="background-image:url('/assets/img/successbackground.png'); width:400px; height:50px">

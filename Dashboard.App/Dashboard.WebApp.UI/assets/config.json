@@ -19,7 +19,7 @@
     "serverScrollInterval": 10000,
     "trainsPerSlide" :  2,
     "serverRefreshInterval": 120000,
-    "projectsRefreshInterval": 60000,
+    "projectsRefreshInterval": 100000,
     "projectScrollInterval": 10000,
     "serversPerSlide" :  4, 
     "bugsUrl": "bugverifycount/Rapid%20Apps",

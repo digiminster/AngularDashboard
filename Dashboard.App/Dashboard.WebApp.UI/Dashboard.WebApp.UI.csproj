@@ -385,6 +385,7 @@
     <Content Include="assets\js\src\main.js" />
     <Content Include="assets\js\src\services\ConfigService.js" />
     <Content Include="assets\js\src\services\FogbugzService.js" />
+    <Content Include="assets\js\src\services\FormatNameFilter.js" />
     <Content Include="assets\js\src\services\ProjectService.js" />
     <Content Include="assets\js\src\services\ServerService.js" />
     <Content Include="assets\js\src\services\TrainService.js" />
