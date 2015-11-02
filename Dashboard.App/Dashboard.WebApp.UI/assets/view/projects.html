@@ -9,8 +9,8 @@
             <div ng-repeat="array in proj">
                 <div>
                     <div  class="server-card" style=" float:left; width:400px;height:300px; ">
-                        <h3>{{array.projectName.name | FormatName}}</h3> 
-                        <div ng-repeat ="build in array.projectName.builds">
+                        <h3>{{array.projectName | FormatName}}</h3> 
+                        <div ng-repeat ="build in array.builds">
                             <div ng-switch="build.Status">
                                 <div ng-switch-when="SUCCESS" style="background-image:url('/assets/img/successbackground.png'); width:400px; height:50px">
                                     <span> {{build.Name}} </></span> <span> | {{build.Status}} | {{build.StatusDate |DateFrom}} </span>

@@ -36,7 +36,7 @@
                     return response.data;
                 })
                 .catch(function (error) {
-                    console.log('Error getting train status.');
+                    console.log('Error getting train status: ' + error);
                     return -1;
                 });
         }

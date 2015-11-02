@@ -28,7 +28,7 @@
                     return response.data;
                 })
                 .catch(function (error) {
-                    console.log('Error getting server status.');
+                    console.log('Error getting server status: ' + error);
                     return -1;
                 });
         }

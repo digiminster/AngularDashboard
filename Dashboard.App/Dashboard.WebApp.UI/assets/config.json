@@ -17,15 +17,16 @@
     "trainRefreshInterval": 60000,
     "trainScrollInterval": 5000,
     "serverScrollInterval": 10000,
+    "serversPerSlide" :  4, 
     "trainsPerSlide" :  2,
     "serverRefreshInterval": 120000,
     "projectsRefreshInterval": 100000,
     "projectScrollInterval": 10000,
-    "serversPerSlide" :  4, 
+    "projectsPerSlide": 4,
     "bugsUrl": "bugverifycount/Rapid%20Apps",
     "projectsUrl": "teamcity",
     "projects": [
-        {"name": "OrderPaperApp"},
+        { "name": "OrderPaperApp" },
         { "name": "Calendar Admin" },
         { "name": "Calendar BKB Sync" },
         { "name": "Calendar BKB Sync Data Service" },
@@ -78,5 +79,4 @@
         { "name": "NewDawn_2_WebApplication" },
         { "name": "Visitor_2_WebApp" }
     ]
-
 }

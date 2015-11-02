@@ -80,6 +80,10 @@
         return configSettings.data.projects;
     }
 
+    configService.getProjectsPerSlide = function () {
+        return configSettings.data.projectsPerSlide;
+    }
+
     configService.getProjectScrollInterval = function () {
         return configSettings.data.projectScrollInterval;
     }

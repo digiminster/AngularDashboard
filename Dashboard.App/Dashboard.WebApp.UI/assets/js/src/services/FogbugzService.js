@@ -9,7 +9,7 @@
                     return response.data;
                 })
                 .catch(function(error) {
-                    console.log('Error getting bug count. ');
+                    console.log('Error getting bug count: ' + error);
                     return -1;
             });
         }

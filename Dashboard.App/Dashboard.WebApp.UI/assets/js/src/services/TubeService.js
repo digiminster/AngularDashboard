@@ -19,7 +19,7 @@
                     return response.data;
                 })
                 .catch(function (error) {
-                    console.log('Error getting Tube status. ');
+                    console.log('Error getting Tube status: ' + error);
                     return -1;
                 });
         }
