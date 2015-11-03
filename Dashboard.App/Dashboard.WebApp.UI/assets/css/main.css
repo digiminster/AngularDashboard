@@ -5746,11 +5746,11 @@ body {
 .project-card .successful {
   background-color: green; }
 .project-card .error {
-  background-color: red; }
+  background-color: darkblue; }
 .project-card .building {
   background-color: yellow; }
 .project-card .failure {
-  background-color: pink; }
+  background-color: red; }
 .project-card .header {
   height: 40px;
   overflow: hidden; }

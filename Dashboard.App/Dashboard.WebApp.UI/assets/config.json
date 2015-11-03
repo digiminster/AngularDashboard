@@ -77,6 +77,7 @@
         { "name": "SpecialistFinder_2_Website" },
         { "name": "Authorisation_2_AdminApp" },
         { "name": "NewDawn_2_WebApplication" },
-        { "name": "Visitor_2_WebApp" }
+        { "name": "Visitor_2_WebApp" },
+        { "name": "HansardOnline_Parser" }
     ]
 }

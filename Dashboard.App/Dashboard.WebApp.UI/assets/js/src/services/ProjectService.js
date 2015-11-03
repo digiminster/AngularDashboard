@@ -14,8 +14,10 @@
             var innerArray = [];
 
             for (var j = 0; j < projectsPerSlide; j++) {
-                var projectObj = new projectData(projects[i + j].name);
-                innerArray.push(projectObj);
+                if (i + j < projects.length) {
+                    var projectObj = new projectData(projects[i + j].name);
+                    innerArray.push(projectObj);
+                }
             }
 
             projectStatuses.push(innerArray);
