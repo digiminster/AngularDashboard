@@ -5648,7 +5648,7 @@ body {
   .starter-template .full-column {
     padding: 0px; }
   .starter-template section {
-    border: 1px solid white;
+    border: 1px solid #777777;
     margin-top: 10px;
     margin-right: 10px; }
 
@@ -5748,7 +5748,8 @@ body {
 .project-card .error {
   background-color: darkblue; }
 .project-card .building {
-  background-color: yellow; }
+  background-color: yellow;
+  color: black; }
 .project-card .failure {
   background-color: red; }
 .project-card .header {
