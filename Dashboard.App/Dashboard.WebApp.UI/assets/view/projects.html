@@ -1,31 +1,58 @@
-﻿<div ng-controller="ProjectCtrl" class="dashboard-panel">
+﻿<div ng-controller="ProjectCtrl">
     <div class="small-header">
         <span class="col-md-12 header">Project Build Information</span>
     </div>
     <div class="clearfix">
     </div>
-    <carousel interval="projectScrollInterval"  >
-        <slide ng-repeat=" proj in projectDataList ">
+    <carousel interval="projectScrollInterval">
+        <slide ng-repeat=" proj in projectDataList">
             <div ng-repeat="array in proj">
-                <div>
-                    <div  class="server-card" style=" float:left; width:400px;height:300px; ">
-                        <h3>{{array.projectName | FormatName}}</h3> 
-                        <div ng-repeat ="build in array.builds">
+                <div class="col-md-6">
+                    <div class="card project-card dashboard-panel">
+                        <div class="description header">{{array.name}}</div>
+                        <div ng-repeat="build in array.builds">
                             <div ng-switch="build.Status">
-                                <div ng-switch-when="SUCCESS" style="background-image:url('/assets/img/successbackground.png'); width:400px; height:50px">
-                                    <span> {{build.Name}} </></span> <span> | {{build.Status}} | {{build.StatusDate |DateFrom}} </span>
+                                <div ng-switch-when="SUCCESS" class="build successful">
+                                    <div class="block-contents">
+                                        <div class="bold">{{build.Name}}</div>
+                                        <div>{{build.StatusDate | prettyDateFilter}}</div>
+                                    </div>
+                                    <div class="block-contents pull-right">
+                                        <span class="glyphicon glyphicon-ok indicator"></span>
+                                    </div>
                                 </div>
-                                <div ng-switch-when="ERROR" style="background-image:url('/assets/img/failurebackground.png'); width:400px; height:50px">
-                                    <span> {{build.Name}} </></span> <span> {{build.Status}} | <script> moment('{{build.StatusDate }}', "YYYYMMDD").fromNow()</script>| {{build.StatusDate |DateFrom}} </span>
+                                <div ng-switch-when="ERROR" class="build error">
+                                    <div class="block-contents">
+                                        <div class="bold">{{build.Name}}</div>
+                                        <div>{{build.StatusDate | prettyDateFilter}}</div>
+                                    </div>
+                                    <div class="block-contents pull-right">
+                                        <span class="glyphicon glyphicon-remove indicator"></span>
+                                    </div>
                                 </div>
-                                
+                                <div ng-switch-when="BUILDING" class="build building">
+                                    <div class="block-contents">
+                                        <div class="bold">{{build.Name}}</div>
+                                        <div>{{build.StatusDate | prettyDateFilter}}</div>
+                                    </div>
+                                    <div class="block-contents pull-right">
+                                        <span class="glyphicon glyphicon-cog indicator"></span>
+                                    </div>
+                                </div>
+                                <div ng-switch-when="FAILURE" class="build failure">
+                                    <div class="block-contents">
+                                        <div class="bold">{{build.Name}}</div>
+                                        <div>{{build.StatusDate | prettyDateFilter}}</div>
+                                    </div>
+                                    <div class="block-contents pull-right">
+                                        <span class="glyphicon glyphicon-warning-sign indicator"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-      
             </div>
         </slide>
     </carousel>
-    
 </div>

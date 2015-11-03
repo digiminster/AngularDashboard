@@ -9,9 +9,10 @@
     var getData = function () {
         angular.forEach($scope.projectDataList, function (value, key) {
             angular.forEach(value, function (innerValue, innerKey) {
-                var projectStatus = ProjectService.getProject(innerValue.projectName);
+                var projectStatus = ProjectService.getProject(innerValue.id);
                 projectStatus.then(function (result) {
                     innerValue.builds = result.Builds;
+                    innerValue.name = result.Name;
                 });
             });
         });
@@ -24,8 +25,8 @@
     }, projectRefreshInterval, 0, true);
 });
 
-angular.module('dashboardApp').filter('DateFrom', function () {
-      return  function(input) {
-         moment(input, "YYYYMMDD").fromNow();
+angular.module('dashboardApp').filter("prettyDateFilter", function () {
+      return function(input) {
+          return prettyDate(input);
     }
 });

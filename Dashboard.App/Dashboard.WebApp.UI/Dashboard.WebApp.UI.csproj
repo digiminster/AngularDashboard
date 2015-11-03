@@ -373,6 +373,7 @@
     <Content Include="assets\js\lib\angular.min.js" />
     <Content Include="assets\js\lib\fastclick.js" />
     <Content Include="assets\js\lib\moment.js" />
+    <Content Include="assets\js\lib\pretty-date.js" />
     <Content Include="assets\js\lib\ui-bootstrap-tpls-0.12.1.min.js" />
     <Content Include="assets\js\src\controllers\ContactCtrl.js" />
     <Content Include="assets\js\src\controllers\FogbugzCtrl.js" />
@@ -385,7 +386,6 @@
     <Content Include="assets\js\src\main.js" />
     <Content Include="assets\js\src\services\ConfigService.js" />
     <Content Include="assets\js\src\services\FogbugzService.js" />
-    <Content Include="assets\js\src\services\FormatNameFilter.js" />
     <Content Include="assets\js\src\services\ProjectService.js" />
     <Content Include="assets\js\src\services\ServerService.js" />
     <Content Include="assets\js\src\services\TrainService.js" />

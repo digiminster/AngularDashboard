@@ -1,8 +1,9 @@
 ﻿angular.module('dashboardApp').factory('ProjectService', function ($http, ConfigService) {
     var projectsService = {};
 
-    function projectData(projectName) {
-        this.projectName = projectName;
+    function projectData(id) {
+        this.id = id;
+        this.name = "";
         this.builds = [];
     };
 
@@ -23,9 +24,9 @@
         return projectStatuses;
     }
 
-    projectsService.getProject = function (projectName) {
+    projectsService.getProject = function (id) {
         if (navigator.onLine) {
-            return $http.get(ConfigService.getDashboardServiceBaseUrl() + ConfigService.getProjectsUrl() + '/' + projectName, { cache: false, timeout: 5000 })
+            return $http.get(ConfigService.getDashboardServiceBaseUrl() + ConfigService.getProjectsUrl() + '/' + id, { cache: false, timeout: 5000 })
                 .then(function (response) {
                     return response.data;
                 }).catch(function (error) {

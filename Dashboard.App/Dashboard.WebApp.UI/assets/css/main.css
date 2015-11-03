@@ -5718,11 +5718,42 @@ body {
 .dashboard-panel {
   background: linear-gradient(to bottom, #333 0%, #444 22%, #444 100%); }
 
-.server-card {
+.card {
   border: 1px solid white;
-  margin-bottom: 5px; }
-  .server-card .description {
+  margin-bottom: 5px;
+  height: 220px; }
+  .card .description {
     font-weight: bold; }
+
+.project-card .build {
+  height: 40px;
+  border: 1px solid white;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-align: left; }
+  .project-card .build .block-contents {
+    height: 100%;
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px; }
+    .project-card .build .block-contents .bold {
+      font-weight: bold; }
+  .project-card .build .indicator {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+.project-card .successful {
+  background-color: green; }
+.project-card .error {
+  background-color: red; }
+.project-card .building {
+  background-color: yellow; }
+.project-card .failure {
+  background-color: pink; }
+.project-card .header {
+  height: 40px;
+  overflow: hidden; }
 
 .progress-arc-panel span {
   display: block; }
