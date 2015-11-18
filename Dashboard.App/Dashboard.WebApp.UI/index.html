@@ -29,6 +29,7 @@
 
     <!-- Controllers -->
     <script src="assets/js/src/controllers/HomeCtrl.js"></script>
+    <script src="assets/js/src/controllers/MenuCtrl.js"></script>
     <script src="assets/js/src/controllers/AboutCtrl.js"></script>
     <script src="assets/js/src/controllers/ProjectsCtrl.js"></script>
     <script src="assets/js/src/controllers/FogbugzCtrl.js"></script>
@@ -44,13 +45,16 @@
     <script src="assets/js/src/services/TrainService.js"></script>
     <script src="assets/js/src/services/ServerService.js"></script>
     <script src="assets/js/src/services/ProjectService.js"></script>
-    <script src="assets/js/src/services/FormatNameFilter.js"></script>
+    <!--<script src="assets/js/src/services/FormatNameFilter.js"></script>-->
     <!--force it to run as an app on a mobile device-->
 
 
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body ng-controller="MenuCtrl" ng-class="showHideBodyClass">
+
+    <div id="menu-show-hide"><button class="well well-sm" id="back-to-top-link" ng-click="showHideMenuButton()"><i class="glyphicon glyphicon-chevron-up"></i></button></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top hidden" ng-class="showHideNavClass" id="top-menu">
+
         <div class="container container-max">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -70,6 +74,7 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+
 
     <div ui-view class="container container-max">
     </div><!-- /.container -->

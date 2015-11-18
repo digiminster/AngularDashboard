@@ -5636,12 +5636,13 @@ button.close {
   .hidden-print {
     display: none !important; } }
 body {
-  padding-top: 50px;
   padding-right: 5px;
   padding-left: 5px;
   background: url(/assets/img/background.png);
   color: white;
   font-family: Tahoma; }
+  body.drop {
+    padding-top: 50px; }
 
 .starter-template {
   text-align: center; }
@@ -5766,5 +5767,11 @@ body {
   margin-top: -50px;
   margin-bottom: 30px;
   font-size: 20px; }
+
+#menu-show-hide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1031; }
 
 /*# sourceMappingURL=main.css.map */
