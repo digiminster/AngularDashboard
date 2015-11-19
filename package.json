@@ -1,0 +1,22 @@
+{
+  "name": "AngularDashboard",
+  "version": "0.0.0",
+  "description": "Angular Dashboard",
+  "main": "Dashboard.App/Dashboard.WebApp.UI/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jammycakes/AngularDashboard.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jammycakes/AngularDashboard/issues"
+  },
+  "devDependencies": {
+    "electron": "^0.4.1",
+    "electron-prebuilt": "^0.34.3"
+  }
+}
