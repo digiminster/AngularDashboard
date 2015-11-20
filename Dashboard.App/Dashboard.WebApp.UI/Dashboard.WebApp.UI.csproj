@@ -401,6 +401,7 @@
     <Content Include="assets\view\bugs.html" />
     <Content Include="assets\view\home.html" />
     <Content Include="index.html" />
+    <Content Include="main.js" />
     <Content Include="Web.config">
       <TransformOnBuild>true</TransformOnBuild>
       <SubType>Designer</SubType>
