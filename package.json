@@ -16,6 +16,7 @@
     "url": "https://github.com/jammycakes/AngularDashboard/issues"
   },
   "devDependencies": {
+    "commander": "^2.9.0",
     "electron": "^0.4.1",
     "electron-prebuilt": "^0.34.3"
   }

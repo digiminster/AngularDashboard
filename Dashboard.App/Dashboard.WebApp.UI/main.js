@@ -1,6 +1,13 @@
 (function() {
   "use strict";
 
+  var process = require('process');
+  var command = require('commander');
+  
+  command
+    .option('-d, --debug', 'Run in debug mode (menus, no kiosk, debugger)')
+    .parse(process.argv);
+  
   var app = require('app');  // Module to control application life.
   var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
@@ -25,19 +32,19 @@
   app.on('ready', function() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-      kiosk: true,
-      fullscreen: true,
-      autoHideMenuBar: true
+      kiosk: !command.debug,
+      fullscreen: !command.debug,
+      autoHideMenuBar: !command.debug
     });
 
-    // We don't want a menu
-    mainWindow.setMenu(null);
+    // We don't want a menu unless we're running in debug mode
+    if (!command.debug) mainWindow.setMenu(null);
 
     // and load the index.html of the app.
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
     // Open the DevTools.
-    // mainWindow.openDevTools();
+    if (command.debug) mainWindow.openDevTools();
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
