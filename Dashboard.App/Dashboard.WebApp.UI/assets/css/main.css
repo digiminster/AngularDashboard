@@ -5649,7 +5649,8 @@ body {
   .starter-template .full-column {
     padding: 0px; }
   .starter-template section {
-    border: 1px solid #777777;
+    border: 2px solid #777777;
+    border-radius: 5px;
     margin-top: 10px;
     margin-right: 10px; }
 
@@ -5720,7 +5721,8 @@ body {
   background: linear-gradient(to bottom, #333 0%, #444 22%, #444 100%); }
 
 .card {
-  border: 1px solid white;
+  border: 1px solid #777777;
+  border-radius: 5px;
   margin-bottom: 5px;
   height: 220px; }
   .card .description {
@@ -5728,11 +5730,11 @@ body {
 
 .project-card .build {
   height: 40px;
+  margin-left: 2px;
+  margin-right: 2px;
   border: 1px solid white;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  text-align: left; }
+  border-radius: 5px;
+  margin-bottom: 5px; }
   .project-card .build .block-contents {
     height: 100%;
     display: inline-block;
