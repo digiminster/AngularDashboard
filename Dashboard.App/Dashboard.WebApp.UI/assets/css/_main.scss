@@ -20,7 +20,8 @@ body {
     }
 
     section {
-        border: 1px solid #777777;
+        border: 2px solid #777777;
+        border-radius: 5px;
         margin-top: 10px;
         margin-right: 10px;
     }
@@ -123,7 +124,8 @@ body {
 }
 
 .card {
-    border: 1px solid white;
+    border: 1px solid #777777;
+    border-radius: 5px;
     margin-bottom: 5px;
     height: 220px;
 
@@ -135,11 +137,11 @@ body {
 .project-card {
     .build {
         height: 40px;
+        margin-left: 2px;
+        margin-right: 2px;
         border: 1px solid white;
-        margin-left: 5px;
-        margin-right: 5px;
+        border-radius: 5px;
         margin-bottom: 5px;
-        text-align: left;
 
         .block-contents {
             height: 100%;
