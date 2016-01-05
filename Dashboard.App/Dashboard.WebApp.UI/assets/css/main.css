@@ -5638,7 +5638,7 @@ button.close {
 body {
   padding-right: 5px;
   padding-left: 5px;
-  background: url(/assets/img/background.png);
+  background: url(../img/background.png);
   color: white;
   font-family: Tahoma; }
   body.drop {
