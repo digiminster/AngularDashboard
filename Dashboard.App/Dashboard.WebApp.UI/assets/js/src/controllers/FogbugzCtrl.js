@@ -1,4 +1,7 @@
-﻿angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, ConfigService, $interval) {
+﻿require('../services/ConfigService.js');
+require('../services/FogBugzService.js');
+
+angular.module('dashboardApp').controller('FogbugzCtrl', function ($scope, FogbugzService, ConfigService, $interval) {
 
     var getBugCount = function() {
         var bugCount = FogbugzService.getBugCount();

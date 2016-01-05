@@ -1,3 +1,11 @@
+require('../lib/angular.min.js');
+require('../lib/angular-ui-router.min.js');
+require('../lib/ui-bootstrap-tpls-0.12.1.min.js');
+require('../lib/angular-progress-arc.js');
+require('../lib/angular-progress-arc.min.js');
+require('../lib/moment.js');
+require('../lib/pretty-date.js');
+
 angular.module('dashboardApp', [
     'ui.bootstrap', 
     'ui.router',
@@ -34,3 +42,14 @@ angular.module('dashboardApp', [
         $urlRouterProvider.otherwise("/home");
     });
 
+
+/* -- Controllers -- */
+require('./controllers/HomeCtrl.js');
+require('./controllers/MenuCtrl.js');
+require('./controllers/AboutCtrl.js');
+require('./controllers/ProjectsCtrl.js');
+require('./controllers/FogbugzCtrl.js');
+require('./controllers/TubeCtrl.js');
+require('./controllers/TrainCtrl.js');
+require('./controllers/ServerCtrl.js');
+require('./controllers/ProjectsCtrl.js');

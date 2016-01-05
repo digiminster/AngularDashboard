@@ -1,4 +1,7 @@
-﻿angular.module('dashboardApp').controller('ServerCtrl', function($scope, ServerService, $interval, ConfigService) {
+﻿require('../services/ServerService.js');
+require('../services/ConfigService.js');
+
+angular.module('dashboardApp').controller('ServerCtrl', function($scope, ServerService, $interval, ConfigService) {
 
     var ips = ConfigService.getServerIps();
     var serverRefreshInterval = ConfigService.getServerRefreshInterval();

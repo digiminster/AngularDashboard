@@ -1,4 +1,7 @@
-﻿angular.module('dashboardApp').controller('TubeCtrl', function ($scope, TubeService, $interval, ConfigService) {
+﻿require('../services/TubeService.js');
+require('../services/ConfigService.js');
+
+angular.module('dashboardApp').controller('TubeCtrl', function ($scope, TubeService, $interval, ConfigService) {
     var lines = ConfigService.getTubeLines();
     $scope.lineStatuses = TubeService.createLineArray(lines);
     $scope.tubeScrollInterval = ConfigService.getTubeScrollInterval();

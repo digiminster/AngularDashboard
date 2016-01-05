@@ -1,4 +1,7 @@
-﻿angular.module('dashboardApp').controller('TrainCtrl', function ($scope, TrainService, $interval, ConfigService) {
+﻿require('../services/TrainService.js');
+require('../services/ConfigService.js');
+
+angular.module('dashboardApp').controller('TrainCtrl', function ($scope, TrainService, $interval, ConfigService) {
 
     var routes = ConfigService.getTrainRoutes();
     $scope.trainScrollInterval = ConfigService.getTrainScrollInterval();

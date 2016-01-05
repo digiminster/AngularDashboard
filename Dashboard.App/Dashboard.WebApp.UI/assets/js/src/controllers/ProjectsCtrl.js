@@ -1,4 +1,7 @@
-﻿angular.module('dashboardApp').controller('ProjectCtrl', function ($scope, ProjectService, ConfigService, $interval) {
+﻿require('../services/ConfigService.js');
+require('../services/ProjectService.js');
+
+angular.module('dashboardApp').controller('ProjectCtrl', function ($scope, ProjectService, ConfigService, $interval) {
     var projectList = ConfigService.getProjects();
 
     var projectRefreshInterval = ConfigService.getProjectsRefreshInterval();
