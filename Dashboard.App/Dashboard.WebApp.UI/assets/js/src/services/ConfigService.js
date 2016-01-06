@@ -1,91 +1,105 @@
 ﻿angular.module('dashboardApp').factory('ConfigService', function ($http) {
+    "use strict";
+    
     var configService = {};
     var configSettings = {};
 
     configService.loadFile = function () {
         return $http.get('assets/config.json', { cache: false, timeout: 5000 })
-                .then(function(response) {
+            .then(function(response) {
                 configSettings = response;
+                console.log(configSettings);
             })
-                .catch(function (error) {
-                    console.log("Could not load config file.");
-                });
+            .catch(function (error) {
+                console.log("Could not load config file.");
+            });
     }
 
+    function getModuleSettings(moduleName) {
+        return configSettings.data.modules[moduleName];
+    }
+    configService.getModuleSettings = getModuleSettings;
+    
+    function getGlobalSetting(settingName) {
+        return configSettings.data[settingName];
+    }
+    configService.getGlobalSetting = getGlobalSetting;
+    
     configService.getServersPerSlide = function () {
-        return configSettings.data.serversPerSlide;
+        return getModuleSettings('Server').serversPerSlide;
     }
 
     configService.getDashboardServiceBaseUrl = function () {
-         return configSettings.data.serviceBaseUrl;
+         return getGlobalSetting('serviceBaseUrl');
     }
 
     configService.getTubeLines = function() {
-        return configSettings.data.tubeLines;
+        return getModuleSettings('Tube').tubeLines;
     }
 
     configService.getTrainRoutes = function () {
-        return configSettings.data.trainRoutes;
+        return getModuleSettings('Train').trainRoutes;
     }
 
     configService.getServerIps = function () {
-        return configSettings.data.serverIps;
+        return getModuleSettings('Server').serverIps;
     }
 
     configService.getBugRefreshInterval = function () {
-        return configSettings.data.bugRefreshInterval;
+        return getModuleSettings('Fogbugz').bugRefreshInterval;
     }
 
     configService.getTubeRefreshInterval = function () {
-        return configSettings.data.tubeRefreshInterval;
+        return getModuleSettings('Tube').tubeRefreshInterval;
     }
 
     configService.getTubeScrollInterval = function () {
-        return configSettings.data.tubeScrollInterval;
+        return getModuleSettings('Tube').tubeScrollInterval;
     }
 
     configService.getTrainRefreshInterval = function () {
-        return configSettings.data.trainRefreshInterval;
+        return getModuleSettings('Train').trainRefreshInterval;
     }
 
     configService.getTrainScrollInterval = function () {
-        return configSettings.data.trainScrollInterval;
+        return getModuleSettings('Train').trainScrollInterval;
     }
 
     configService.getTrainsPerSlide = function () {
-        return configSettings.data.trainsPerSlide;
+        return getModuleSettings('Train').trainsPerSlide;
     }
 
     configService.getServerScrollInterval = function () {
-        return configSettings.data.serverScrollInterval;
+        return getModuleSettings('Server').serverScrollInterval;
     }
 
     configService.getServerRefreshInterval = function () {
-        return configSettings.data.serverRefreshInterval;
+        return getModuleSettings('Server').serverRefreshInterval;
     }
 
     configService.getProjectsRefreshInterval = function () {
-        return configSettings.data.projectsRefreshInterval;
+        return getModuleSettings('Project').projectsRefreshInterval;
     }
 
     configService.getBugsUrl = function () {
-        return configSettings.data.bugsUrl;
+        return getModuleSettings('Fogbugz').bugsUrl;
     }
 
     configService.getProjectsUrl = function () {
-        return configSettings.data.projectsUrl;
+        return getModuleSettings('Project').projectsUrl;
     }
 
     configService.getProjects = function () {
-        return configSettings.data.projects;
+        return getModuleSettings('Project').projects;
     }
 
     configService.getProjectsPerSlide = function () {
-        return configSettings.data.projectsPerSlide;
+        return getModuleSettings('Project').projectsPerSlide;
     }
 
     configService.getProjectScrollInterval = function () {
-        return configSettings.data.projectScrollInterval;
+        return getModuleSettings('Project').projectScrollInterval;
     }
+
     return configService;
 });
