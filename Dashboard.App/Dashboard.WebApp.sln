@@ -1,18 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildAndDeployment", "BuildAndDeployment", "{5431DA96-2439-4906-A659-ADFC0831C3CE}"
-	ProjectSection(SolutionItems) = preProject
-		BuildAndDeployment\Build-Properties-DEVCI.proj = BuildAndDeployment\Build-Properties-DEVCI.proj
-		BuildAndDeployment\Build-Properties-QA.proj = BuildAndDeployment\Build-Properties-QA.proj
-		BuildAndDeployment\build.proj = BuildAndDeployment\build.proj
-		BuildAndDeployment\BuildMultiple.proj = BuildAndDeployment\BuildMultiple.proj
-		BuildAndDeployment\IISController.proj = BuildAndDeployment\IISController.proj
-		BuildAndDeployment\runBuild.bat = BuildAndDeployment\runBuild.bat
-		BuildAndDeployment\SharedAssemblyInfo.cs = BuildAndDeployment\SharedAssemblyInfo.cs
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.WebApp.UI", "Dashboard.WebApp.UI\Dashboard.WebApp.UI.csproj", "{9432C19F-05C4-4E19-AC4F-98A0978B524B}"
 EndProject
 Global
