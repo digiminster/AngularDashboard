@@ -6,4 +6,4 @@ if "%1"=="install" (
 )
 
 SET mypath=%~dp0
-%mypath%node_modules\.bin\electron.cmd %mypath%Dashboard.App\Dashboard.WebApp.UI\main.js %*
+%mypath%node_modules\.bin\electron.cmd %mypath%src\Dashboard.WebApp.UI\main.js %*
