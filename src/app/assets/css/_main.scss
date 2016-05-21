@@ -1,0 +1,210 @@
+@import '_bootstrap';
+
+body {
+    padding-right: 5px;
+    padding-left: 5px;
+    background: url(../img/background.png);
+    color: white;
+    font-family: Tahoma;
+
+    &.drop {
+        padding-top: 50px;
+    }
+}
+
+.starter-template {
+    text-align: center;
+
+    .full-column {
+        padding: 0px;
+    }
+
+    section {
+        border: 2px solid #777777;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+}
+
+.small-header {
+    width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    .header {
+        font-size: 16px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .last-updated {
+        text-align: right;
+        font-size: 12px;
+        padding-top: 3px;
+    }
+}
+
+.servers {
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+.container-max {
+    width: 100%;
+}
+
+#projects, #servers {
+    height: 600px;
+}
+
+#bugs {
+    overflow: hidden;
+
+    h2 {
+        font-size: 20px;
+    }
+
+    span {
+        font-size: 110px;
+    }
+
+    .bugPanel {
+        background: linear-gradient(#D30000, #990000);
+    }
+
+    .verifyPanel {
+        background: linear-gradient(#FFFF4D, #FFFF00);
+        color: black;
+    }
+}
+
+#tubeLineName {
+    font-size: 20px;
+}
+
+#tubeStatus {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+}
+
+#trains {
+    .route {
+        span {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .table.table-condensed, th, td {
+            text-align: left;
+            border-color: gray;
+            font-size: 12px;
+            padding: 2px;
+            margin: 0;
+        }
+    }
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+.carousel-control {
+    visibility: hidden;
+}
+
+.carousel-indicators {
+    top: -22px;
+}
+
+.dashboard-panel {
+    background: linear-gradient(to bottom, #333 0%, #444 22%, #444 100%);
+}
+
+.card {
+    border: 1px solid #777777;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    height: 220px;
+
+    .description {
+        font-weight: bold;
+    }
+}
+
+.project-card {
+    .build {
+        height: 40px;
+        margin-left: 2px;
+        margin-right: 2px;
+        border: 1px solid white;
+        border-radius: 5px;
+        margin-bottom: 5px;
+
+        .block-contents {
+            height: 100%;
+            display: inline-block;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            .bold {
+                font-weight: bold;
+            }
+        }
+
+        .indicator {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .successful {
+        background-color: green;
+    }
+
+    .error {
+        background-color: darkblue;
+    }
+
+    .building {
+        background-color: yellow;
+        color: black;
+    }
+
+    .failure {
+        background-color: red;
+    }
+
+    .header {
+        height: 40px;
+        overflow: hidden;
+    }
+}
+
+.progress-arc-panel {
+    span {
+        display: block;
+    }
+
+    #displayNbr {
+        margin-top: -60px;
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+
+    #driveLetter {
+        margin-top: -50px;
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+}
+
+#menu-show-hide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1031;
+}
